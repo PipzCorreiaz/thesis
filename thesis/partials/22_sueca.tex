@@ -1,0 +1,38 @@
+\subsection{The game of \emph{Sueca}}
+
+\emph{Sueca} is a card game categorised as trick-taking, which means the game has a finite number of rounds, called tricks.
+In this case, there are ten tricks, since the deck has forty cards equally distributed among the four players.
+This game uses the standard French card deck, excluding the rank 8 through 10.
+Although most trick-taking card games count the number of winning tricks to determine the winner, \emph{Sueca} assigns points to the cards, according to Table~\ref{tab:points-table}.
+The most significant difference, compared to other games, is the card with rank 7 being higher than the King (K) and lower Ace (A).
+
+
+All valued cards sum 120 points, which means a team with more than 60 points wins the game.
+Moreover, each player is paired with the player in front of him, and the two adjacent players form the opposing team.
+Hence, the game involves both cooperation and competition.
+
+\begin{table}[ht]
+\centering
+\caption{Rank of cards per suit and respective reward values}
+\begin{tabular}{|C{0.1\textwidth}|C{0.1\textwidth}|C{0.1\textwidth}|C{0.1\textwidth}|C{0.1\textwidth}|C{0.1\textwidth}|C{0.1\textwidth}|}
+\hline
+\textbf{Cards}  & 2-6 & Q & J & K & 7  & A\\
+\hline
+\textbf{Points} & 0   & 2 & 3 & 4 & 10 & 11\\
+\hline
+\end{tabular}
+\label{tab:points-table}
+\end{table}
+
+After the deck has been shuffled and divided, the dealer chooses the top or bottom card to be the trump suit, leaves it on the table, and distributes the remaining cards among all players.
+The remaining rules are quite similar to any other trick-taking games:
+\begin{itemize}
+\item Follow the suit of the first card played in the turn (lead suit), if possible;
+\item A player wins the trick if his card has the highest value belonging to the lead suit or the trump suit.
+\end{itemize}
+
+
+\emph{Sueca} is a nondeterministic game, since it includes what is called the element of chance by the cards being dealt randomly at the beginning.
+Additionally, since the cards of each player are hidden from the other players, this is considered as an imperfect information game.
+There are almost $1.9\times10^{22}$ possible card distributions\footnote{$4\times\Comb{40}{10}\times\Comb{30}{10}\times\Comb{20}{10}$}.
+%Nevertheless, considering the initial hand of the agent, the uncertainty about other players' hands decreases to $5.9\times10^{12}$ \footnote{$\Comb{30}{10}\times\Comb{20}{10}$}.

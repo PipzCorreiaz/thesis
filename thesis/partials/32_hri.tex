@@ -1,0 +1,165 @@
+\subsection{Human-robot interaction}
+
+Regarding the goals of this project, it is crucial to investigate and evaluate the state of the art of \ac{hri}, in particular in the context of robot companions or players.
+Since it aims to interact with aged people in a card game scenario, there are two clear branches that must be studied.
+Firstly, the existing robots with an elderly care purpose.
+Secondly, how social agents have been integrated into games.
+The next subsections will address these points.
+
+
+
+\subsubsection{Robots in elderly care}
+
+The greying of population is an undeniable demographic fact and, consequently, assisting the elderly in their daily living is a worrying subject.
+In order to address this concern, robots can be a valuable aid, however, considering the limitation of current robotic technology, their purposes are present in more specific tasks.
+
+
+In 2009, Broekens et al. analysed and reviewed the most relevant literature about social robots in elderly care \cite{Broekens2009}.
+The authors categorised assistive robots for elderly as shown in Figure~\ref{fig:categorization}.
+The first division distinguishes social robots from nonsocial robots.
+The nonsocial ones are used for rehabilitation purposes and physical assistance, such as a smart wheelchair or an artificial limb, however, regarding the main purposes of this work, nonsocial robots will not be discussed.
+Social robots should be perceived as social entities due to their interaction with humans and can also be divided into two different sets, service type and companion type.
+The intersection of these two sets represents some of the robots that are used for both purposes and cannot be strictly categorised.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.7\textwidth]{./img/categorization_robots}
+  \caption{Categorization of assistive robots for elderly}
+\label{fig:categorization}
+\end{figure}
+
+A well known social service robot is \emph{Pearl} (Figure~\ref{fig:pearl}), developed in the Carnegie Mellon University within the Nursebot Project \cite{Pollack2002}.
+%\emph{Pearl} can be defined as a nursebot, considering its main goal is to guide aged people.
+This autonomous robot's duties are to guide the elderly through their environment, and to remind them about their daily activities, such as eating or taking their medicine.
+In other words, this functional assistant is capable of giving advice and providing cognitive support.
+When analysing \emph{Pearl} through a more general \ac{ai} point of view, this robot is equipped with many different technologies.
+Firstly, it has a speech recognition module and also has speech synthesis.
+Secondly, it has stereo camera systems and performs a fast image processing including face recognition.
+Lastly, \emph{Pearl} also provides a navigation system and its body is touch sensitive.
+
+Another two similar service robots are \emph{RoboCare} \cite{Bahadori} and \emph{Care-O-bot II} \cite{Graf2004}.
+They both are autonomous and provide indoor guidance to the elderly and, due to their advanced domotic components, strong planning, and scheduling frameworks, they can improve the independence of their owners.
+Since the aid these service type robots may grant to the elderly covers most of their daily basic activities, the involved concerns are amplified when compared to the proposed robot that plays a card game.
+These worries are reflected, for instance, in the extensive amount of sensors these robots should include.
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[h]{0.2\textwidth}
+                \includegraphics[width=\textwidth]{./img/pearl}
+                \caption{Pearl}
+                \label{fig:pearl}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{./img/paro}
+                \caption{Paro}
+                \label{fig:paro}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.2\textwidth}
+                \includegraphics[width=\textwidth]{./img/aibo}
+                \caption{Aibo}
+                \label{fig:aibo}
+        \end{subfigure}
+        \caption{Service and companion robots for the elderly.}\label{fig:elder-robots}
+\end{figure}
+
+\emph{Paro} is a seal shaped companion robot used as medical therapy for the elderly (Figure~\ref{fig:paro}).
+Since 2003, the work by Wada et al. provides a very good psychological and physiological evaluation of \emph{Paro}'s effects on the residents of a care house \cite{Wada2007,Wada2005,Wada2003}.
+This robot contains a behaviour generation system that provides proactive, reactive and physiological reactions, such as, poses or motions, looking at the direction of a sound, and sleeping.
+Their studies of both three weeks and one year have shown improvements in residents' moods, depression, stress levels, and social interactions with other residents.
+The goal of such a robot is fully inspired in animal-assisted treatments, which have studied benefits in humans' health.
+However, hospitals and health centres do not allow animals due to hygienic and safety reasons.
+Hence, researchers found a great opportunity to build similar robotic animals.
+
+Another example of a purely companion robot is the \emph{Huggable} \cite{Stiehl2005}, a teddy bear shaped covered of extremely sensitive touch sensors.
+The \emph{Huggable} not only detects hard and soft touches, but also distinguishes between an object and a human touch.
+Considering experiments in an hospital, this robot was connected to a computer in the nurses' station and allowed the staff to access the sensory input data.
+Nurses could detect fear or insecurity by the way people hold the robot and provide appropriate assistance.
+
+Purely companion robots in elderly care have only been applied to people with some kind of psychological or physiological disorder.
+As a result, these studies have distinct target audiences and also different concerns when compared to the purposes of our proposed embodied agent.
+
+
+\emph{Aibo} illustrates a robot that can be assigned to both the service type and the companion type (Figure~\ref{fig:aibo}).
+It is considered by its creators as an entertainment type due to its puppy shaped body \cite{Fujita1983}, and its appearance tries to maintain a lifelike experience to its owners.
+Tamura et al. started to study the acceptance and effects of this robot on elders with severe dementia \cite{Tamura2004}.
+Their study revealed a relevant increase of social actions, emotions and feelings of comfort about past memories.
+
+
+\begin{table}[h]
+\centering
+\caption{Robots for the aged population, their type and purposes}
+\begin{tabular}{l|cccccc|}
+\cline{2-7}
+                                     & Pearl & RoboCare & Care-O-Bot-II & Paro & Huegable & Aibo \\ \hline
+\multicolumn{1}{|l|}{Service type}   & \ding{51}     & \ding{51}        & \ding{51}             &      &          & \ding{51}    \\
+\multicolumn{1}{|l|}{Companion type} &       &          &               & \ding{51}    & \ding{51}        & \ding{51}    \\ \hline
+\multicolumn{1}{|l|}{Guidance}       & \ding{51}     & \ding{51}        & \ding{51}             &      &          &      \\
+\multicolumn{1}{|l|}{Advice}         & \ding{51}     & \ding{51}        & \ding{51}             &      &          &      \\
+\multicolumn{1}{|l|}{Therapy}        &       &          &               & \ding{51}    & \ding{51}        & \ding{51}    \\ \hline
+\end{tabular}
+\label{tab:elderly-robots}
+\end{table}
+
+
+
+Table~\ref{tab:elderly-robots} groups all the previously mentioned robots and their purposes.
+This information strengthens the pertinence of our work, since existing robots for the elderly are focused on their physical and mental disabilities.
+Providing pleasuring activities for the aged population, that are still capable of reasoning, should also be a concern.
+
+
+
+
+
+\subsubsection{Social robots in games}
+
+The idea of entertainment robots, which was previously mentioned, is expanding and becoming more frequent.
+Its general goal is to create a social robot to interact with humans through a specific entertainment activity.
+These activities should be lifelike experiences providing pleasure and enjoyment feelings.
+Depending on the target audience, they can also be included in more challenging or even pedagogic activities.
+
+Leite et al. uses the \emph{iCat} robot in a chess game scenario with children \cite{Castellano2010,Leite,Leitea}.
+This chess companion also has the role of a tutor due to the help it provides during the game, for instance, it expresses opinions about children' moves so that they can improve their chess skills.
+After their first pilot studies, the authors revealed the need of including social and cognitive abilities, commonly referred as empathy.
+Their further studies introduced into the \emph{iCat} affect recognition in order to improve the robot's social cues.
+The way they address this point includes recognising users' expressions and considering others' affective states.
+For instance, when a child is losing, the \emph{iCat} comments about his moves should not cause embarrassment.
+In addition, and considering their goals were also focused on long-term interactions, this chess player recognises faces and greet people mentioning past events.
+
+This agent has some similarities and differences with the proposed agent of this work.
+On one hand, including empathic behaviour to robots usually leads to more engaging, natural and likable experiences to users.
+On the other hand, the \emph{iCat} in this scenario needs access to more details of users' emotional state because of its tutoring advices. Our \emph{Sueca} player will not advise other players about their actions, instead it will comment the game state.
+Additionally, the target audience is clearly different and may lead to different concerns, and their work was also focused on long-term interaction.
+
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[h]{0.48\textwidth}
+                \includegraphics[width=\textwidth]{./img/icat}
+                \caption{iCat - Chess tutor}
+                \label{fig:icat}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{./img/emys}
+                \caption{EMYS - Risk player}
+                \label{fig:emys}
+        \end{subfigure}
+        \caption{Companion robots in game playing scenarios.}\label{fig:game-robots}
+\end{figure}
+
+
+Another example of a robot integrated into a game scenario is the Risk player by Pereira et al. \cite{Lisboa}.
+The goal of their work was to create a robot that interacts with humans and is perceived as socially present in long-term interactions.
+Firstly, the authors presented how physical embodiments can provide interactivity and, therefore, cause the belief of social presence and improve face-to-face interactions.
+They also presented some guidelines in order to improve social presence and how they implemented them in the \emph{EMYS} robot for the mentioned scenario \cite{Pereira}.
+In the Risk scenario, the agent produces non-verbal interactions through a gazing system and a speech direction detector, and it is capable of giving verbal feedback using a topology of speeches according to the game state.
+Moreover, the authors included an emotion or appraisal system that considers the values of some variables to improve the agent's behaviours, for instance, every event is rated with a relevance value and the robot only comments important moves.
+Another example is measuring the power of each player and, since Risk is about conquering and controlling, this power measure is used to shape the robot's mood and defining its strategy to play.
+Equally important are the simulation of social roles and the luck perception when rolling the dice.
+All the described behaviours were fully inspired by user studies.
+
+Pereira's work is by far the most similar to the purposes of our goals.
+It demonstrates how to enrich the Risk game experience with a robot capable of social behaviours at a human level.
+The main difference from the proposed \emph{Sueca} player is the game.
+Since no relevant user studies have been done with \emph{Sueca}, applying the Risk' constraints to the \emph{Sueca}'s scenario would lead to inconsistencies.
+However, an analogous approach might be taken, considering the domain data collection and the following development of the game player architecture. 
+
