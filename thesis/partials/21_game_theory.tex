@@ -1,0 +1,45 @@
+\subsection{Game theory concepts}
+
+Game theory studies decision making problems involving multiple decision makers.
+A problem of this nature is usually called a game and defines a set of constraints to the players' actions.
+It also studies the strategies these players might take and the properties of each game.
+%This subject is applied to many different areas, such as economics, political science, biology, or computer science.
+
+Each decision maker tries to maximise the payoff/reward of his possible actions and one possible approach to do that is to consider the opponents' actions.
+The Nash-equilibrium \cite{Nash1950} of a game is a stable strategy for every player and occurs when each player chooses the best strategy for himself, considering their opponents have the same behaviour.
+Moreover, each player cannot have a better benefit by changing his strategy unilaterally.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{./img/gamesHierarchy}
+\caption{Hierarchy of games}
+\label{fig:games}
+\end{figure}
+
+Figure~\ref{fig:games} shows how games can be hierarchically categorised \cite{Osborne2011}.
+In a cooperative game, players cooperate with one another in order to achieve a common goal.
+Alternatively, in a non-cooperative game, each player works independently for its own purposes.
+Non-cooperative games can also be branched into two forms: normal and extensive form \cite{Shoham2010}.
+A normal form game can be defined as the tuple $(N,(A_k)_{k=1}^{N},(u_k)_{k=1}^{N})$, where:
+
+\begin{itemize}
+\item $N$ is the number of players;
+\item $A_k$ is the finite set of available actions for the $k$-th player;
+\item $u_k$ is the payoff for the $k$-th player.
+\end{itemize}
+
+Additionally, considering the players' payoffs, another relevant concept is the zero-sum game, where the sum of all players' payoffs is zero.
+For instance, in a zero-sum 2 players game, $u_1 = -u_2$.
+Although the normal form games assume that players' actions are made simultaneously, in the extensive form games, the players' actions are sequential.
+This evidence leads to another branching in the hierarchy of games and, consequently, an extensive game can be considered as a perfect information and an imperfect information game.
+In perfect information games, each player knows exactly the real state of his opponents, (e.g. Chess).
+%The second means opponents' state is hidden (e.g. Poker).
+In imperfect information games, the game state is not fully observable to the players. For instance, in a Poker game, a player only knows its own cards, the cards in the table, and the bets of all players. 
+
+In imperfect information games, an \emph{information state} or \emph{information set} for a player $k$ corresponds to a set of all games states that yield the same “observation” to player $k$. For example, in a Poker game, an information set consists in all game-states that lead to the same observed cards in the table and in the player’s hand.
+
+%Considering the focus of this work on a card game, another relevant point on top of hidden information games is the definition of information set.
+%An information set aggregates several nodes representing unknown information such as choice nodes. In a card game, for instance, the information set of a player, whose cards are hidden, corresponds to all the possible combinations of his hand.
+
+
+

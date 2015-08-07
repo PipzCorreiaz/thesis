@@ -1,0 +1,59 @@
+\documentclass[defaultstyle,10pt,master]{thesis}
+\input{Preamble}
+\begin{document}
+
+
+
+\input{partials/00_front_cover}
+\setcounter{page}{1} 
+\pagenumbering{roman}
+
+\baselineskip 18pt % line spacing: -12pt for single spacing
+                   %               -18pt for 1 1/2 spacing
+                   %               -24pt for double spacing
+                   
+\input{partials/01_acknowledgements}  
+\input{partials/02_abstract}
+\input{partials/03_resumo}
+
+\dominitoc
+\dominilof
+\dominilot
+
+\pdfbookmark[0]{Index}{index}
+\pdfbookmark[1]{Contents}{toc}
+\tableofcontents
+\cleardoublepage
+\renewcommand{\baselinestretch}{1.5}
+
+\pdfbookmark[1]{List of Figures}{lof}
+\listoffigures
+\cleardoublepage
+
+\pdfbookmark[1]{List of Tables}{lot}
+\listoftables
+\cleardoublepage
+
+\input{Glossary}
+
+
+\setcounter{page}{1} \pagenumbering{arabic}
+\baselineskip 18pt
+\cleardoublepage
+
+\input{partials/10_introduction}
+\input{partials/20_background}
+\input{partials/30_related_work}
+\input{partials/40_approach}
+\input{partials/50_results}
+\input{partials/60_conclusions}
+
+\bibliography{bibdesk}{}
+\bibliographystyle{plainnat}
+\cleardoublepage
+
+%\appendix
+%\input{AppendixA}
+%\input{AppendixB}
+
+\end{document}

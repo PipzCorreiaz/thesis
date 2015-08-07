@@ -1,0 +1,204 @@
+%!TEX TS-program = pdflatex
+%!TEX encoding = UTF-8 Unicode
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+\usepackage[sort&compress,round]{natbib}
+%\usepackage[square,numbers]{natbib}
+\bibliographystyle{plainnat}
+%\bibliographystyle{unsrtnat}
+
+%for coloured hyperlinks
+\usepackage{hyperref}
+\hypersetup{ a4paper=true,
+             colorlinks=false,
+             citecolor=red,
+             breaklinks=true,
+             %bookmarks=true,
+             bookmarksnumbered=true,
+             bookmarksopen=true,
+             pdftitle={Computational prediction of microRNA targets in plant genomes},                 % EDIT THIS LINE
+             pdfauthor={Manuel Borges Dias dos Reis},                    % EDIT THIS LINE
+             pdfsubject={Computational prediction of microRNA targets in plant genomes},                  % EDIT THIS LINE
+             pdfcreator={Manuel Borges Dias dos Reis}, % EDIT THIS LINE
+             pdfkeywords={miRNA, plants}                             % EDIT THIS LINE
+}
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry}
+\usepackage{pdflscape}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig} % permite meter figuras no meio do texto
+
+%% PACKAGE algorithmic, algorithm
+%% ------------------------------
+%% These packages are required if you need to describe an algorithm.
+\usepackage{algorithmicx}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{xspace}
+\usepackage{setspace}
+%\usepackage[chapter]{algorithm}
+
+%\usepackage{citep}
+\usepackage{float}
+%\floatstyle{boxed}
+%\restylefloat{figure}   % To re-style the 'figure' float
+%\restylefloat{}    % To re-style the 'le' float.
+
+%\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{pdfpages}
+
+%%% PACKAGES
+\renewcommand{\arraystretch}{1.2}
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{listings}
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{code}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=code}
+
+%\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage[flushleft,para]{threeparttable}
+\usepackage{tabularx}
+\usepackage{tablefootnote}
+\usepackage{changepage}
+\usepackage{array}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% FILIPA %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[printonlyused]{acronym}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}
+\normalem
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fixfoot,footmisc}
+
+\usepackage{enumitem}
+
+\newcommand*\BitAnd{\mathrel{\&}}
+\newcommand*\BitOr{\mathrel{|}}
+
+\algnewcommand\algorithmicinitialize{\textbf{Initialize:}}
+\algnewcommand\Initialize{\item[\algorithmicinitialize]}
+
+\algnewcommand\algorithmicbasis{\textbf{Basis:}}
+\algnewcommand\Basis{\item[\algorithmicbasis]}
+
+\algnewcommand{\Print}{\textbf{print}\xspace}
+\algnewcommand{\Increment}{\textbf{Increment}\xspace}
+\algnewcommand{\By}{\textbf{by}\xspace}
+\algnewcommand{\BinAnd}{\textbf{and}\xspace}
+\algnewcommand{\BinOr}{\textbf{or}\xspace}
+\algnewcommand{\BitOr}{\mathrel{|}}
+
+\hyphenation{microRNA} % allows defining the hyphenation of a particular work
+\hyphenation{microRNAs}
+\hyphenation{pre-miRNA}
+\hyphenation{miRNA}
+\hyphenation{miRNAs}
+
+\hoffset 0in
+\voffset 0in
+\oddsidemargin 0.71cm
+\evensidemargin 0.04cm
+\marginparsep 0in
+\topmargin -0.25cm
+\textwidth 15cm
+\textheight 23.5cm
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} \fancyhead[LE]{\bfseries\nouppercase{\leftmark}}
+\fancyhead[RO]{\bfseries\nouppercase{\rightmark}}
+\fancyfoot[LE,RO]{\bfseries\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\addtolength{\headheight}{2pt} % make space for the rule
+\fancypagestyle{plain}{%
+   \fancyhead{} % get rid of headers
+   \renewcommand{\headrulewidth}{0pt} % and the line
+   \renewcommand{\footrulewidth}{0pt}
+}
+\fancypagestyle{blank}{%
+   \fancyhf{} % get rid of headers and footers
+   \renewcommand{\headrulewidth}{0pt} % and the line
+   \renewcommand{\footrulewidth}{0pt}
+}
+\fancypagestyle{abstract}{%
+   \fancyhead{}
+   \renewcommand{\headrulewidth}{0pt}
+   \renewcommand{\footrulewidth}{0.5pt}
+}
+\fancypagestyle{document}{%
+	\fancyhf{} \fancyhead[LE]{\bfseries\nouppercase{\leftmark}}
+	\fancyhead[RO]{\bfseries\nouppercase{\rightmark}}
+	\fancyfoot[LE,RO]{\bfseries\thepage}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+	\addtolength{\headheight}{2pt} % make space for the rule
+}
+\setcounter{secnumdepth} {5}
+\setcounter{tocdepth} {5}
+\renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
+
+
+%for submmited but yet to be accepted publications
+\newcommand{\noop}[1]{}

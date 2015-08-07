@@ -1,0 +1,38 @@
+\subsection{Monte-Carlo Tree Search}
+
+
+\ac{mcts} is a family of algorithms whose goal is finding optimal decisions, by combining standard tree search with Monte-Carlo sampling \cite{Browne2012}.
+This method incrementally builds a search tree according to the results of previous iterations.
+The search tree is expanded by randomly sampling the nodes.
+Usually, it is divided into four steps, as described below.
+\begin{itemize}
+  \item Selection: To select a child node through a selection policy. This policy must balance between unexplored areas of the tree and promising nodes that may lead to higher rewards.
+  \item Expansion: To expand the selected node to add one or more nodes to the tree, according to the available actions.
+  \item Simulation: To select an expanded node through a simulation or default policy to produce an outcome.
+  \item Backpropagation: To propagate the reward value of all the selected nodes in order to update their statistics.
+\end{itemize}
+
+
+The main strength of \ac{mcts} is its little knowledge requirement, and so, it can be applied to many different domains.
+This algorithm can also be easily paralleled, since each simulation process can be done independently.
+
+
+According to Browne et al., finding a suitable variation of \ac{mcts} is the greatest challenge of applying the algorithm to a specific environment.
+The most popular algorithm of \ac{mcts} family is \ac{uct}, and this variation differs from the original in the selection phase.
+It uses a maximisation function to evaluate the available nodes, according to the following equation:
+
+\begin{equation}
+    UCT = \overline{X}_j + c\sqrt{\frac{\ln n}{n_j}},
+\end{equation}
+
+where $\overline{X}_j$ represents the average value associated with option $j$ in the current state, $n_j$ is the number of times that option $j$ was selected in the current state, $n$ is the number of visits to the current state and $c$ is an exploration parameter.
+
+It models the reward of each child node as an independent multiarmed bandit problem.
+This means that, besides considering the already obtained average reward of a child node ($\overline{X}_j$), it also considers the maximum expected gain of that same child node ($c\sqrt{\frac{\ln n}{n_j}}$).
+This function establishes an equilibrium between exploitation and exploration.
+Exploitation is evaluated in the first term of the equation by considering the average reward of a child node.
+The exploration is manipulated in the second term by balancing the amount of times the parent node and the child node $j$ have been visited (respectively, $n$ and $n_j$).
+A considerable amount of iterations will approximate the \ac{uct} to a minimax tree.
+Consequently, the produced results are nearly optimal with high probability.
+
+ 
