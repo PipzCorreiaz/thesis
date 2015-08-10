@@ -1,5 +1,5 @@
-\subsection{AI in games}
- 
+\section{AI in games}
+
 %%% jogos tem sido um grande desafio
 \ac{ai} has been solving many games over the years, however, the definition of "games" usually refers to zero-sum and perfect information games.
 These kind of games are commonly solved by creating a tree representing all possible states and searching for the optimal, or a nearly optimal, solution.
@@ -19,7 +19,7 @@ The second pointed approach will not be addressed due to the imposed limitations
 
 
 
-\subsubsection{Monte-Carlo Methods}
+\subsection{Monte-Carlo Methods}
 
 %%% monte carlo e cada vez mais popular
 The popularity and acceptance of Monte-Carlo based methods have increased since its success on Bridge.
@@ -116,7 +116,7 @@ Another relevant disadvantage is the computational burden that \ac{ismcts} and \
 
 
 
-\subsubsection{Game State Inference \& Opponent Modelling}
+\subsection{Game State Inference \& Opponent Modelling}
 
 
 While discussing imperfect information games, belief distributions, game state inference and opponent modelling are another relevant subjects to consider.
@@ -169,9 +169,9 @@ Since \ac{mcts} can be used in the \emph{Sueca} domain, a similar opponent model
 \begin{tabular}{|C{0.1\textwidth}|l|l|C{0.12\textwidth}|}
 \hline
 \textbf{Tested domain} & \multicolumn{1}{c|}{\textbf{Technique}}     & \multicolumn{1}{c|}{\textbf{Goal}} & \textbf{Suitable to \emph{Sueca}} \\ \hline
-\multirow{4}{*}{Skat}  & Determine the winning probability of a hand & Improve the bidding                & \ding{53}                         \\ \cline{2-4} 
-                       & Fastes-cut-first heuristic                  & Order moves                        & \ding{51}                         \\ \cline{2-4} 
-                       & Considering similar states equally          & Reduce tree exploration            & \ding{51}                         \\ \cline{2-4} 
+\multirow{4}{*}{Skat}  & Determine the winning probability of a hand & Improve the bidding                & \ding{53}                         \\ \cline{2-4}
+                       & Fastes-cut-first heuristic                  & Order moves                        & \ding{51}                         \\ \cline{2-4}
+                       & Considering similar states equally          & Reduce tree exploration            & \ding{51}                         \\ \cline{2-4}
                        & Calculate the mistake rate of each player   & Improve the bidding                & $\sim$ \\ \hline
 Poker                  & Opponent model                              & Improve \ac{mcts} policies      & \ding{51}                         \\ \hline
 \end{tabular}
@@ -189,5 +189,4 @@ Thinking in the embodied agent of our work, it can assign a mistake rate variabl
 A similar approach might be thought to use the winning probability, however, opponents' hands are not visible and the agent should not reveal its own information.
 The last technique also can be an addition to the \ac{mcts} base policies.
 
- 
- 
+
