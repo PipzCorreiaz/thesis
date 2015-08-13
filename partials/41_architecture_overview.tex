@@ -14,7 +14,7 @@ It considers a scenario where an embodied agent plays a physical card game again
 First of all, this model distinguishes physical components from virtual ones.
 However, some entities are presented as both physical and virtual components and will not be detailed since their usage in this system did not demand any extensions for the scope of our domain (\emph{Touch Table}, \emph{Sensory Component} and \emph{Embodied Agent}).
 
-The basic workflow that illustrates the main functionalities of each component is as follows.
+The basic work-flow that illustrates the main functionalities of each component is as follows.
 The human players, \emph{Users}, play with physical cards on top of a \emph{Touch Table}, and their game actions are managed by the \emph{Game Application} and communicated to both the \emph{\ac{ai}} and the \emph{Decision Maker}.
 %\todo{check the sensory components!}
 Besides their game actions, \emph{Users} also produce another sort of events that are captured by the \emph{Sensory Component} and handled by the \emph{Perception Manager}, for instance, face movements or the source direction of spoken interactions.
@@ -31,7 +31,7 @@ Lastly, the \emph{Behaviour Planner}, after receiving high-level intention-direc
 \end{figure}
 
 %\todo{confirmar com o Tiago se sai uma seta do skene para o unity!!!}
-The previsously described architecture is instantiated as shown in Figure~\ref{fig:model} and the blue modules are thalamus communicating entities.
+The previously described architecture is instantiated as shown in Figure~\ref{fig:model} and the blue modules are thalamus communicating entities.
 This concept arises from the Thalamus Framework \cite{Ribeiro}, which enables the usage of entities that can be registered at runtime in a server in order to send and receive specific messages.
 These entities are publishers and subscribers of the channels they want to write on and listen to, respectively.
 The implementation provided by this framework works by simply inherit from the \emph{ThalamusClient} class and implement the interfaces of the messages that the entity wants to exchange.
