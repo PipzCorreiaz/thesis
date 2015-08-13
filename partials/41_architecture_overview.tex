@@ -31,15 +31,15 @@ Lastly, the \emph{Behaviour Planner}, after receiving high-level intention-direc
 \end{figure}
 
 %\todo{confirmar com o Tiago se sai uma seta do skene para o unity!!!}
-The previsously described architecture is instantiated as shown in Figure~\ref{fig:model} and the blue modules are thalamus communicating enteties.
-This concept arises from the Thalamus Framework \cite{Ribeiro}, which enables the usage of enteties that can be registered at runtime in a server in order to send and receive specific messages.
-These enteties are publisheres and subscribers of the channels they want to write on and listen to, respectively.
-The implementation provided by this framework works by simply inherit from the \emph{ThalamusClient} class and implement the interfaces of the messages that the entety wants to exchange.
+The previsously described architecture is instantiated as shown in Figure~\ref{fig:model} and the blue modules are thalamus communicating entities.
+This concept arises from the Thalamus Framework \cite{Ribeiro}, which enables the usage of entities that can be registered at runtime in a server in order to send and receive specific messages.
+These entities are publishers and subscribers of the channels they want to write on and listen to, respectively.
+The implementation provided by this framework works by simply inherit from the \emph{ThalamusClient} class and implement the interfaces of the messages that the entity wants to exchange.
 
-The \emph{Unity Game} module is reponsible for displaying the interface of the game, reading the physical cards, publishing all the relevant game events and subscribing to the plays of artificial players.
+The \emph{Unity Game} module is responsible for displaying the interface of the game, reading the physical cards, publishing all the relevant game events and subscribing to the plays of artificial players.
 
 The chosen \emph{Behaviour Planner} is \emph{Skene} \cite{Ribeiroa}, which tightens the communication between the world and an embodied agent with a high-level behaviour description language, also known as utterances.
 These utterances might include instructions for gazing, pointing, animating or sound, among other things.
-Additionaly, considering some instructions require target positions or other game informations, Skene subscribes to \emph{Unity game} messages to keep that information updated.
+Additionally, considering some instructions require target positions or other game information, Skene subscribes to \emph{Unity game} messages to keep that information updated.
 
-The \emph{\ac{ai}} and \emph{FAtiMA} modules answer to our primary goals, for that reason, their implementations are carefuly detailed in Section~\ref{sec:artificial_player} and Section~\ref{sec:behaviour_planner}, respectively.
+The \emph{\ac{ai}} and \emph{FAtiMA} modules answer to our primary goals, for that reason, their implementations are carefully detailed in Section~\ref{sec:artificial_player} and Section~\ref{sec:behaviour_planner}, respectively.
