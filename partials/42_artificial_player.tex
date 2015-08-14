@@ -1,4 +1,63 @@
 \section{An intelligent player}%The artificial player}
 \label{sec:artificial_player}
 
-AI has been implemented...
+This section will describe the most relevant implementation details of the artificial player.
+After thoroughly analysing state-of-the-art techniques to solve imperfect information games, and considering \emph{Sueca} is, at this moment, computationally unsolved, the chosen approach was \ac{pimc}.
+To implement this search technique, there are three key concepts or algorithms that require a full understanding: the Information Set, the PICM Search and the MinMax Algorithm.
+
+\subsection*{Information Set}
+
+An information set represents all the visible information during a game, and also inferred information based on certain events.
+The player must keep an instance of the information set per game and update it when necessary.
+It stores the known hand of the player and a deck with all the cards whose owner is unknown.
+As result, each time another player plays a card, it should be removed from that deck.
+
+The purpose of managing unplayed cards is to sample possible card distributions for the other three players with their real conditions.
+These sampled distributions will be used during the \ac{pimc} search and the closer they are to the real world, the better the search returning value will be.
+Additionally, the information set keeps track of suits per player and, when a player does not follow the leadsuit of a trick, it removes that suit from the player possible suits.
+By possessing this information, sampling the distributions gets closer to the world, however it increased the complexity of the sampling process.
+The method builds a \ac{csp} where:
+\begin{itemize}
+\item variables are the unplayed cards;
+\item each domain is the set of players that still have that suit;
+\item and the constraints are the number of times a player can be assigned to a card.
+\end{itemize}
+
+
+\subsection*{\ac{pimc} Search}
+
+The following pseudo-code of the \ac{pimc} search algorithm guided the implementation.
+To recapitulate the main point of this algorithm, considering it can choose up to \#Moves($I$), it samples $N$ possible card distributions for the other three players and calculates the reward of playing each possible move for the $N$ sampled worlds. The returned move is the one that gave more accumulated reward.
+
+\begin{algorithm}
+	\caption{PIMC search algorithm}
+	\begin{algorithmic}[1]
+		\Procedure{PIMC}{InfoSet $I$, int $N$}
+			\ForAll {$m \in$ Moves($I$)}
+				\State $val[m]$ = 0
+			\EndFor
+			\ForAll {$i \in \{ 1..N\}$}
+				\State $x$ = Sample($I$)
+				\ForAll {$m \in$ Moves($I$)}
+					\State $val[m]$ += PerfInfoValue($x$, $m$)
+				\EndFor
+			\EndFor
+			\State \textbf{return} $\underset{m}{argmax}\{ val[m] \}$
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+
+\subsection*{MinMax Algorithm}
+
+Bla bla bla
+
+
+\subsection{Drawbacks}
+
+Bla bla bla
+
+
+\subsection{Enhancements}
+
+Bla bla bla
