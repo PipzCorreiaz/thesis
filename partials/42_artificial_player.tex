@@ -15,7 +15,7 @@ As result, each time another player plays a card, it should be removed from that
 The purpose of managing unplayed cards is to sample possible card distributions for the other three players with their real conditions.
 These sampled distributions will be used during the \ac{pimc} search and the closer they are to the real world, the better the search returning value will be.
 Additionally, the information set keeps track of suits per player and, when a player does not follow the leadsuit of a trick, it removes that suit from the player possible suits.
-By possessing this information, sampling the distributions gets closer to the world, however it increased the complexity of the sampling process.
+By possessing this information, sampling possible distributions gets closer to the real world, however it increases the complexity of the sampling process.
 The method builds a \ac{csp} where:
 \begin{itemize}
 \item variables are the unplayed cards;
@@ -27,7 +27,6 @@ The method builds a \ac{csp} where:
 \subsection*{\ac{pimc} Search}
 
 The following pseudo-code of the \ac{pimc} search algorithm guided the implementation.
-To recapitulate the main point of this algorithm, considering it can choose up to \#Moves($I$), it samples $N$ possible card distributions for the other three players and calculates the reward of playing each possible move for the $N$ sampled worlds. The returned move is the one that gave more accumulated reward.
 
 \begin{algorithm}
 	\caption{PIMC search algorithm}
@@ -47,6 +46,11 @@ To recapitulate the main point of this algorithm, considering it can choose up t
 	\end{algorithmic}
 \end{algorithm}
 
+To recapitulate the main point of this algorithm, considering it can choose up to \#Moves($I$), it samples $N$ possible card distributions for the other three players and calculates the reward of playing each possible move for the $N$ sampled worlds.
+The returned move is the one that gave more accumulated reward.
+
+The number of iterations this algorithm perform is imposed by the $N$ parameter.
+Another version of the algorithm, instead of limiting the number of iterations, specifies the execution time of the main loop.
 
 \subsection*{MinMax Algorithm}
 
