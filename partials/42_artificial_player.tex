@@ -54,7 +54,15 @@ Another version of the algorithm, instead of limiting the number of iterations, 
 
 \subsection*{MinMax Algorithm}
 
-Bla bla bla
+As mentioned above, \ac{pimc} has to calculate the reward of playing a card, for each sampled world.
+Since a sampled distribution assigns the remaining cards to the players, every game can be handled as a perfect information game.
+Therefore, to compute a perfect information game, considering each player or team intends to win, the MinMax algorithm was used.
+
+MinMax is a popular algorithm for calculating optimal decisions in multiplayer games.
+Each node corresponds to a possible move by a player and their successors correspond to the possible moves of next player.
+In the \emph{Sueca} game tree, each group of four levels represents a trick.
+Since the utility value can only be determined in terminal nodes, these back-propagate their best or worst child utilities, if they are max or min nodes, respectively.
+
 
 
 \subsection{Drawbacks}
