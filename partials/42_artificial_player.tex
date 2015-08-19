@@ -59,17 +59,23 @@ Since a sampled distribution assigns the remaining cards to the players, every g
 Therefore, to compute a perfect information game, considering each player or team intends to win, the MinMax algorithm was used.
 
 MinMax is a popular algorithm for calculating optimal decisions in multiplayer games.
-Each node corresponds to a possible move by a player and their successors correspond to the possible moves of next player.
-In the \emph{Sueca} game tree, each group of four levels represents a trick.
-Since the utility value can only be determined in terminal nodes, these back-propagate their best or worst child utilities, if they are max or min nodes, respectively.
+Each node corresponds to a possible move by a player and their successors correspond to the possible moves of the next player.
+The player representing \ac{emys} and his team mate are both max players, likewise, the other two opponents are min players.
+
+The complete game tree has 40 levels, from l\textsubscript{0} to l\textsubscript{39}, and each group of l\textsubscript{4n} to l\textsubscript{4n+3} represents a trick.
+Additionally, since the utility value can only be determined in terminal nodes, these back-propagate their best or worst child utilities, if they are max or min nodes, respectively.
+The chosen utility function is the \ac{emys} team score, which means his team tries to maximize that value and his opponents try to minimize it.
 
 
+\subsection{Enhancements}
+
+The main enhancements made to the MinMax algorithm, suggested by \citet*{Russell2009}, were the alpha-beta prunning, a move ordering heuristic, and a transposition table.
+
+
+Furthermore, another heuristic was used, aiming to reduce redundancy in the state generation, suggested by \cite{Buro}.
 
 \subsection{Drawbacks}
 
 Bla bla bla
 
 
-\subsection{Enhancements}
-
-Bla bla bla
