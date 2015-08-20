@@ -74,8 +74,11 @@ Additionally, the algorithm tends to choose a near optimal decision as long as t
 As a result, this algorithm has to process a large number of nodes to make a decision, specially in the beginning of the game, and without the enhancements further described, this task was impractical.
 
 \citet*{Russell2009} suggested that MinMax performance can be improved using the alpha-beta prunning, a move ordering heuristic, and a transposition table.
-
-
+Th alpha-beta prunning, by simply storing the best choices so far for the max and min nodes, does not explore nodes that will not influence the final decision.
+This technique can also be improved with a favourable ordering heuristic that produces earlier alpha-beta cuts.
+Therefore, the implemented ordering heuristic is dynamic and uses an auxiliary computation to decide how to order moves.
+Similarly to a human player reasoning, it analyses the current trick and tries to anticipate its winner.
+If this auxiliary procedure expects the winner to be one of its opponents, it orders the cards from the less valuable to the most valuable, otherwise, it does the opposite.
 
 Furthermore, another heuristic was used, aiming to reduce redundancy in the state generation, suggested by \cite{Buro}.
 
