@@ -67,15 +67,27 @@ Additionally, since the utility value can only be determined in terminal nodes, 
 The chosen utility function is the \ac{emys} team score, which means his team tries to maximize that value and his opponents try to minimize it.
 
 
-\subsection{Enhancements}
+\subsection{Drawbacks and enhancements}
 
-The main enhancements made to the MinMax algorithm, suggested by \citet*{Russell2009}, were the alpha-beta prunning, a move ordering heuristic, and a transposition table.
+When applying \ac{pimc} to decide a move to make, the number of computed game trees is \#Moves($I$) times $N$ (the number of different distributions), and the size of the game tree depends on the moves that are left to finish the game.
+Additionally, the algorithm tends to choose a near optimal decision as long as the $N$ is reasonably large.
+As a result, this algorithm has to process a large number of nodes to make a decision, specially in the beginning of the game, and without the enhancements further described, this task was impractical.
+
+\citet*{Russell2009} suggested that MinMax performance can be improved using the alpha-beta prunning, a move ordering heuristic, and a transposition table.
+
 
 
 Furthermore, another heuristic was used, aiming to reduce redundancy in the state generation, suggested by \cite{Buro}.
 
-\subsection{Drawbacks}
 
-Bla bla bla
+
+
+
+
+
+
+
+
+
 
 
