@@ -9,7 +9,7 @@ PDFFILE=$(FILENAME).pdf
 all:
 	@mkdir -p out
 	@echo "Building document..."
-	@$(TEX) --output-directory=out $(TEXFILE) > /dev/null
+	@$(TEX) --output-directory=out $(TEXFILE) #> /dev/null
 	@echo "Generating bibliography..."
 	@$(BIB) out/$(FILENAME) > /dev/null
 	@echo "Setting things up..."
