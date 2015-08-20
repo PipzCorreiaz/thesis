@@ -62,7 +62,7 @@ MinMax is a popular algorithm for calculating optimal decisions in multiplayer g
 Each node corresponds to a possible move by a player and their successors correspond to the possible moves of the next player.
 The player representing \ac{emys} and his team mate are both max players, likewise, the other two opponents are min players.
 
-The complete game tree has 40 levels, from l\textsubscript{0} to l\textsubscript{39}, and each group of l\textsubscript{4n} to l\textsubscript{4n+3} represents a trick.
+The complete game tree has 40 levels, from $l_{0}$ to $l_{39}$, and each group of $l_{4n}$ to $l_{4n+3}$ represents a trick.
 Additionally, since the utility value can only be determined in terminal nodes, these back-propagate their best or worst child utilities, if they are max or min nodes, respectively.
 The chosen utility function is the \ac{emys} team score, which means his team tries to maximize that value and his opponents try to minimize it.
 
@@ -93,7 +93,7 @@ When computing Moves($I$), two or more cards of the same suit, with consecutive 
 Limiting the maximum depth achieved by the MinMax algorithm was another available option, specially for earlier decisions that produce larger trees.
 However, considering a non-terminal node as terminal implies the utility function must be revised or predicted.
 For that reason, when limiting the search depth, the following utility function was used:
-%\todo{MLIMITED UTILITY FUNCTION}
+\todo{MLIMITED UTILITY FUNCTION}
 
 Lastly, to exploit the computational resources and considering the fact that \ac{pimc} can be easily paralleled, the outer loop was divided into the number of \ac{cpu} the machine has.
 
