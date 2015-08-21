@@ -16,7 +16,7 @@ However, some entities are presented as both physical and virtual components and
 
 The basic work-flow that illustrates the main functionalities of each component is as follows.
 The human players, \emph{Users}, play with physical cards on top of a \emph{Touch Table}, and their game actions are managed by the \emph{Game Application} and communicated to both the \emph{\ac{ai}} and the \emph{Decision Maker}.
-%\todo{check the sensory components!}
+\todo[inline]{check the sensory components!}
 Besides their game actions, \emph{Users} also produce another sort of events that are captured by the \emph{Sensory Component} and handled by the \emph{Perception Manager}, for instance, face movements or the source direction of spoken interactions.
 The \emph{\ac{ai}} includes all the reasoning about the game and decides the next move of the artificial player.
 However, the \emph{Embodied Agent} will not only play a certain card, but will also include social behaviours.
@@ -30,7 +30,7 @@ Lastly, the \emph{Behaviour Planner}, after receiving high-level intention-direc
 \label{fig:model}
 \end{figure}
 
-%\todo{confirmar com o Tiago se sai uma seta do skene para o unity!!!}
+\todo[inline]{confirmar com o Tiago se sai uma seta do skene para o unity!!!}
 The previously described architecture is instantiated as shown in Figure~\ref{fig:model} and the blue modules are thalamus communicating entities.
 This concept arises from the Thalamus Framework \cite{Ribeiro}, which enables the usage of entities that can be registered at runtime in a server in order to send and receive specific messages.
 These entities are publishers and subscribers of the channels they want to write on and listen to, respectively.

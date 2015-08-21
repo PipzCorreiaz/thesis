@@ -4,6 +4,7 @@
 This section will describe the most relevant implementation details of the artificial player.
 After thoroughly analysing state-of-the-art techniques to solve imperfect information games, and considering \emph{Sueca} is, at this moment, computationally unsolved, the chosen approach was \ac{pimc}.
 To implement this search technique, there are three key concepts or algorithms that require a full understanding: the Information Set, the PICM Search and the MinMax Algorithm.
+Moreover, the encountered drawbacks are also further described, as well as the enhancements implemented to overcome those limitations.
 
 \subsection*{Information Set}
 
@@ -16,7 +17,7 @@ The purpose of managing unplayed cards is to sample possible card distributions 
 These sampled distributions will be used during the \ac{pimc} search and the closer they are to the real world, the better the search returning value will be.
 Additionally, the information set keeps track of suits per player and, when a player does not follow the leadsuit of a trick, it removes that suit from the player possible suits.
 By possessing this information, sampling possible distributions gets closer to the real world, however it increases the complexity of the sampling process.
-The method builds a \ac{csp} where:
+The sampling method builds a \ac{csp} where:
 \begin{itemize}
 \item variables are the unplayed cards;
 \item each domain is the set of players that still have that suit;
@@ -46,7 +47,7 @@ The following pseudo-code of the \ac{pimc} search algorithm guided the implement
 	\end{algorithmic}
 \end{algorithm}
 
-To recapitulate the main point of this algorithm, considering it can choose up to \#Moves($I$), it samples $N$ possible card distributions for the other three players and calculates the reward of playing each possible move for the $N$ sampled worlds.
+To recapitulate the main points of this algorithm, considering it can choose up to \#Moves($I$), it samples $N$ possible card distributions for the other three players and calculates the reward of playing each possible move for the $N$ sampled worlds.
 The returned move is the one that gave more accumulated reward.
 
 The number of iterations this algorithm perform is imposed by the $N$ parameter.
@@ -84,18 +85,23 @@ This concept might appear as a hard trade-off between the produced speed and the
 However, alpha-beta cuts have reasonably increased and reduced significantly the the exploration time of the whole tree.
 
 Another improvement with remarkable results on the MinMax performance was a transposition table.
-Considering each card configuration or distribution will produce \#Moves($I$) game trees, they will contain sufficient similar subtrees to store its first computed value.
-Therefore, instead of recomputing it, it can be reused.
+Considering each card configuration or distribution will produce \#Moves($I$) game trees, they will contain sufficient similar subtrees to store their first computed values.
+Therefore, instead of recomputing them, they can be reused.
 
-Furthermore, another heuristic was used, aiming to reduce redundancy in the state generation, suggested by \cite{Buro}.
+Furthermore, another heuristic was used, aiming to reduce redundancy in the state generation, suggested by \citet{Buro}.
 When computing Moves($I$), two or more cards of the same suit, with consecutive ranks and with the same value can be considered as the same move, since they produces the same value.
+For instance, holding 3$\clubsuit$, 4$\clubsuit$ and 5$\clubsuit$ on the same hand will produce three equivalent states and therefore, this heuristic produce only one.
 
 Limiting the maximum depth achieved by the MinMax algorithm was another available option, specially for earlier decisions that produce larger trees.
 However, considering a non-terminal node as terminal implies the utility function must be revised or predicted.
 For that reason, when limiting the search depth, the following utility function was used:
-\todo{MLIMITED UTILITY FUNCTION}
+\todo[inline]{Utility function for depth limit MinMax and based on analysed games!}
 
-Lastly, to exploit the computational resources and considering the fact that \ac{pimc} can be easily paralleled, the outer loop was divided into the number of \ac{cpu} the machine has.
+Lastly, to exploit the computational resources and considering the fact that \ac{pimc} can be easily paralleled, the outer loop was divided into the number of \acp{cpu} the machine has.
+Using a machine with 4 \acp{cpu}, the speed-up is nearly 4.
+The only concern while paralleling this algorithm is to carefully manage the scope of shared and private variables among the threads.
+
+
 
 
 
