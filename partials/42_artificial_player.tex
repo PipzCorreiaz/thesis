@@ -11,7 +11,7 @@ Moreover, the encountered drawbacks are also further described, as well as the e
 An information set represents all the visible information during a game, and also inferred information based on certain events.
 The player must keep an instance of the information set per game and update it when necessary.
 It stores the known hand of the player and a deck with all the cards whose owner is unknown.
-As result, each time another player plays a card, it should be removed from that deck.
+As a result, each time another player plays a card, it should be removed from that deck.
 
 The purpose of managing unplayed cards is to sample possible card distributions for the other three players with their real conditions.
 These sampled distributions will be used during the \ac{pimc} search and the closer they are to the real world, the better the search returning value will be.
@@ -82,7 +82,7 @@ Therefore, the implemented ordering heuristic is dynamic and uses an auxiliary c
 Similarly to a human player reasoning, it analyses the current trick and tries to anticipate its winner.
 If this auxiliary procedure expects the winner to be one of its opponents, it orders the cards from the less valuable to the most valuable, otherwise, it does the opposite.
 This concept might appear as a hard trade-off between the produced speed and the time spent on this extra computation plus the sort.
-However, alpha-beta cuts have reasonably increased and reduced significantly the the exploration time of the whole tree.
+However, alpha-beta cuts have reasonably increased and reduced significantly the exploration time of the whole tree.
 
 Another improvement with remarkable results on the MinMax performance was a transposition table.
 Considering each card configuration or distribution will produce \#Moves($I$) game trees, they will contain sufficient similar subtrees to store their first computed values.
