@@ -5,8 +5,62 @@ Since it aims to interact with aged people in a card game scenario, there are tw
 Firstly, the existing robots with an elderly care purpose.
 Secondly, how social agents have been integrated into games.
 The next subsections will address these points.
+\todo[inline]{review this introductory text and get the focus on social robots in games}
 
 
+\subsection{Social robots in games}
+
+\todo[inline]{review this subsection and find more related work!!!!!!!!!!!!!!}
+The idea of entertainment robots, which was previously mentioned, is expanding and becoming more frequent.
+Its general goal is to create a social robot to interact with humans through a specific entertainment activity.
+These activities should be lifelike experiences providing pleasure and enjoyment feelings.
+Depending on the target audience, they can also be included in more challenging or even pedagogic activities.
+
+Leite et al. uses the \emph{iCat} robot in a chess game scenario with children \cite{Castellano2010,Leite,Leitea}.
+This chess companion also has the role of a tutor due to the help it provides during the game, for instance, it expresses opinions about children' moves so that they can improve their chess skills.
+After their first pilot studies, the authors revealed the need of including social and cognitive abilities, commonly referred as empathy.
+Their further studies introduced into the \emph{iCat} affect recognition in order to improve the robot's social cues.
+The way they address this point includes recognising users' expressions and considering others' affective states.
+For instance, when a child is losing, the \emph{iCat} comments about his moves should not cause embarrassment.
+In addition, and considering their goals were also focused on long-term interactions, this chess player recognises faces and greet people mentioning past events.
+
+This agent has some similarities and differences with the proposed agent of this work.
+On one hand, including empathic behaviour to robots usually leads to more engaging, natural and likable experiences to users.
+On the other hand, the \emph{iCat} in this scenario needs access to more details of users' emotional state because of its tutoring advices. Our \emph{Sueca} player will not advise other players about their actions, instead it will comment the game state.
+Additionally, the target audience is clearly different and may lead to different concerns, and their work was also focused on long-term interaction.
+
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[h]{0.48\textwidth}
+                \includegraphics[width=\textwidth]{./img/icat}
+                \caption{iCat - Chess tutor}
+                \label{fig:icat}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{./img/emys}
+                \caption{EMYS - Risk player}
+                \label{fig:emys}
+        \end{subfigure}
+        \caption{Companion robots in game playing scenarios.}\label{fig:game-robots}
+\end{figure}
+
+
+Another example of a robot integrated into a game scenario is the Risk player by Pereira et al. \cite{Lisboa}.
+The goal of their work was to create a robot that interacts with humans and is perceived as socially present in long-term interactions.
+Firstly, the authors presented how physical embodiments can provide interactivity and, therefore, cause the belief of social presence and improve face-to-face interactions.
+They also presented some guidelines in order to improve social presence and how they implemented them in the \emph{EMYS} robot for the mentioned scenario \cite{Pereira}.
+In the Risk scenario, the agent produces non-verbal interactions through a gazing system and a speech direction detector, and it is capable of giving verbal feedback using a topology of speeches according to the game state.
+Moreover, the authors included an emotion or appraisal system that considers the values of some variables to improve the agent's behaviours, for instance, every event is rated with a relevance value and the robot only comments important moves.
+Another example is measuring the power of each player and, since Risk is about conquering and controlling, this power measure is used to shape the robot's mood and defining its strategy to play.
+Equally important are the simulation of social roles and the luck perception when rolling the dice.
+All the described behaviours were fully inspired by user studies.
+
+Pereira's work is by far the most similar to the purposes of our goals.
+It demonstrates how to enrich the Risk game experience with a robot capable of social behaviours at a human level.
+The main difference from the proposed \emph{Sueca} player is the game.
+Since no relevant user studies have been done with \emph{Sueca}, applying the Risk' constraints to the \emph{Sueca}'s scenario would lead to inconsistencies.
+However, an analogous approach might be taken, considering the domain data collection and the following development of the game player architecture.
 
 \subsection{Robots in elderly care}
 
@@ -109,57 +163,4 @@ Providing pleasuring activities for the aged population, that are still capable 
 
 
 
-
-\subsection{Social robots in games}
-
-The idea of entertainment robots, which was previously mentioned, is expanding and becoming more frequent.
-Its general goal is to create a social robot to interact with humans through a specific entertainment activity.
-These activities should be lifelike experiences providing pleasure and enjoyment feelings.
-Depending on the target audience, they can also be included in more challenging or even pedagogic activities.
-
-Leite et al. uses the \emph{iCat} robot in a chess game scenario with children \cite{Castellano2010,Leite,Leitea}.
-This chess companion also has the role of a tutor due to the help it provides during the game, for instance, it expresses opinions about children' moves so that they can improve their chess skills.
-After their first pilot studies, the authors revealed the need of including social and cognitive abilities, commonly referred as empathy.
-Their further studies introduced into the \emph{iCat} affect recognition in order to improve the robot's social cues.
-The way they address this point includes recognising users' expressions and considering others' affective states.
-For instance, when a child is losing, the \emph{iCat} comments about his moves should not cause embarrassment.
-In addition, and considering their goals were also focused on long-term interactions, this chess player recognises faces and greet people mentioning past events.
-
-This agent has some similarities and differences with the proposed agent of this work.
-On one hand, including empathic behaviour to robots usually leads to more engaging, natural and likable experiences to users.
-On the other hand, the \emph{iCat} in this scenario needs access to more details of users' emotional state because of its tutoring advices. Our \emph{Sueca} player will not advise other players about their actions, instead it will comment the game state.
-Additionally, the target audience is clearly different and may lead to different concerns, and their work was also focused on long-term interaction.
-
-
-\begin{figure}[h]
-        \centering
-        \begin{subfigure}[h]{0.48\textwidth}
-                \includegraphics[width=\textwidth]{./img/icat}
-                \caption{iCat - Chess tutor}
-                \label{fig:icat}
-        \end{subfigure}
-        \begin{subfigure}[h]{0.5\textwidth}
-                \includegraphics[width=\textwidth]{./img/emys}
-                \caption{EMYS - Risk player}
-                \label{fig:emys}
-        \end{subfigure}
-        \caption{Companion robots in game playing scenarios.}\label{fig:game-robots}
-\end{figure}
-
-
-Another example of a robot integrated into a game scenario is the Risk player by Pereira et al. \cite{Lisboa}.
-The goal of their work was to create a robot that interacts with humans and is perceived as socially present in long-term interactions.
-Firstly, the authors presented how physical embodiments can provide interactivity and, therefore, cause the belief of social presence and improve face-to-face interactions.
-They also presented some guidelines in order to improve social presence and how they implemented them in the \emph{EMYS} robot for the mentioned scenario \cite{Pereira}.
-In the Risk scenario, the agent produces non-verbal interactions through a gazing system and a speech direction detector, and it is capable of giving verbal feedback using a topology of speeches according to the game state.
-Moreover, the authors included an emotion or appraisal system that considers the values of some variables to improve the agent's behaviours, for instance, every event is rated with a relevance value and the robot only comments important moves.
-Another example is measuring the power of each player and, since Risk is about conquering and controlling, this power measure is used to shape the robot's mood and defining its strategy to play.
-Equally important are the simulation of social roles and the luck perception when rolling the dice.
-All the described behaviours were fully inspired by user studies.
-
-Pereira's work is by far the most similar to the purposes of our goals.
-It demonstrates how to enrich the Risk game experience with a robot capable of social behaviours at a human level.
-The main difference from the proposed \emph{Sueca} player is the game.
-Since no relevant user studies have been done with \emph{Sueca}, applying the Risk' constraints to the \emph{Sueca}'s scenario would lead to inconsistencies.
-However, an analogous approach might be taken, considering the domain data collection and the following development of the game player architecture.
 

@@ -1,12 +1,12 @@
-\section{An intelligent player}%The artificial player}
-\label{sec:artificial_player}
+\fancychapter{\ac{ai} for \emph{Sueca}}
+\label{chapter:artificial-player}
 
 This section will describe the most relevant implementation details of the artificial player.
 After thoroughly analysing state-of-the-art techniques to solve imperfect information games, and considering \emph{Sueca} is, at this moment, computationally unsolved, the chosen approach was \ac{pimc}.
 To implement this search technique, there are three key concepts or algorithms that require a full understanding: the Information Set, the PICM Search and the MinMax Algorithm.
 Moreover, the encountered drawbacks are also further described, as well as the enhancements implemented to overcome those limitations.
 
-\subsection*{Information Set}
+\section*{Information Set}
 
 An information set represents all the visible information during a game, and also inferred information based on certain events.
 The player must keep an instance of the information set per game and update it when necessary.
@@ -25,7 +25,7 @@ The sampling method builds a \ac{csp} where:
 \end{itemize}
 
 
-\subsection*{\ac{pimc} Search}
+\section*{\ac{pimc} Search}
 
 The following pseudo-code of the \ac{pimc} search algorithm guided the implementation.
 
@@ -53,7 +53,7 @@ The returned move is the one that gave more accumulated reward.
 The number of iterations this algorithm perform is imposed by the $N$ parameter.
 Another version of the algorithm, instead of limiting the number of iterations, specifies the execution time of the main loop.
 
-\subsection*{MinMax Algorithm}
+\section*{MinMax Algorithm}
 
 As mentioned above, \ac{pimc} has to calculate the reward of playing a card, for each sampled world.
 Since a sampled distribution assigns the remaining cards to the players, every game can be handled as a perfect information game.
@@ -70,7 +70,7 @@ The chosen utility function to evaluate a game is the winning team score, a posi
 
 
 
-\subsection{Drawbacks and enhancements}
+\section{Drawbacks and enhancements}
 
 When applying \ac{pimc} to decide which move to make, the number of computed game trees is \#Moves($I$) times $N$ (the number of different distributions), and the size of a game tree depends on the moves that are left to finish the game.
 Additionally, the algorithm tends to choose a near optimal decision as long as the $N$ is reasonably large.
