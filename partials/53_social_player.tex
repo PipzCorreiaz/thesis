@@ -61,7 +61,16 @@ Besides the previous usage of the emotional agent, this \emph{Sueca} player is p
 Since the game success probability is always being updated, together with the mentioned perception of reward, this agent also produces \emph{joy}, \emph{distress}, \emph{hope} and \emph{fear} to set its posture during the game.
 %The posture of this embodied agent is an underlying expression over
 
+\todo[inline]{opponent vs teamplayer fatures}
+
 \subsection{Enhancing the game interface with behaviours}
-nextplayer
-receiving cards
-trick end
+
+Beyond the idea of creating a player that acts humanly in this scenario, other considerations must influence its behaviours.
+The final game interface was quite similar to what traditional \emph{Sueca} players are used to, specially due to the usage of physical cards.
+However, there are two main concerns to consider when playing over the touch table instead of a traditional \emph{Sueca} game: players must respect their time to play in order for the card to be assumed in the correct order; when a trick has finished, cards must be removed in order to proceed the game.
+
+Consequently, the two utterances' categories differing from analysed human behaviours were \emph{Next Player} and \emph{Trick End}.
+The first one is different mainly due to the frequency the agent talks to the next player.
+This frequency is higher than the observed by human players in order to enhance this new game experience and encourage players to play on their own times.
+The second pointed difference, in \emph{Trick End} utterances, was not at all captured by human players.
+The pilot experiences evidenced the urge of introducing some cues to remove cards after the trick, and this \emph{Sueca} player warned other players about this.
