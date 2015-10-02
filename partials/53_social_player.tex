@@ -18,7 +18,7 @@ The current section will present the main aspects of the utterances list that ch
 
 
 \subsection{\emph{Sueca} behaviours}
-The analysis of the card game players on user centred studies revealed key aspects of the interaction during a \emph{Sueca} game.
+The analysis of the card game players on user-centred studies revealed key aspects of the interaction during a \emph{Sueca} game.
 First of all, there are specific game situations that may cause verbal or non-verbal behaviours.
 As a result, these game situations guided the categories and subcategories of the utterances list, presented on the following figure.
 
@@ -40,19 +40,26 @@ Additionally, a \emph{FAtiMA} module was used, as shown in Figure~\ref{fig:model
 
 \emph{FAtiMA} is a modular architecture for an emotional agent capable of producing 22 different emotions based on its goals and its perceptions of new events for a determined scenario.
 Perceptions can be updated by changing the values of 6 appraisal variables (desirability, desirability for other, success probability, failure probability, praiseworthiness and like) and their combination can generate one or more emotions.
-However, the current emotional agent of this \emph{Sueca} player is only using 4 appraisal variables, which means it only produces 12 emotions, as presented in Figure~\ref{fig:emotions}
+However, the current emotional agent of this \emph{Sueca} player is only using 4 appraisal variables, which means it only produces 12 emotions, as presented in Figure~\ref{fig:emotions}.
 
 \begin{figure}[ht]
 	\centering
-    \includegraphics[width=1\textwidth]{./img/emotions}
+    \includegraphics[width=0.75\textwidth]{./img/emotions}
 	\caption{FAtiMA emotions divided}
 \label{fig:emotions}
 \end{figure}
 
-These emotional states could have been used to subcategorize utterances, however, the analysis of humans playing \emph{Sueca} evidenced their behaviours mostly depend on the specifications of a certain move or simply sign 
+A first approach was to subcategorize utterances with emotional states, however, most of the annotated behaviours by human players evidenced they revealed their emotions in few situations during a the game.
+A possible reason may lay on the fact that \emph{Sueca} has the element of chance and unknown information should remain protected.
 
-frequency
-emotions
+As a result, emotional states were used on this social player to subcategorize the \emph{Play} utterances.
+These utterances are triggered by a play from any player and the idea is to produce an adequate behaviour considering the immediately rewarded benefit.
+In other words, each time a player plays a card, the current winner of the trick is computed to analyse how much the agent benefits with that move and also the player itself.
+With this strategy, when the agent or its team player make a move, the possible emotions are \emph{Happy For} and \emph{Pitty}, otherwise, when an opponent plays, the possible emotions are \emph{Resentment} and \emph{Gloating}.
+
+Besides the previous usage of the emotional agent, this \emph{Sueca} player is permanently exhibiting its emotional state through its posture.
+Since the game success probability is always being updated, together with the mentioned perception of reward, this agent also produces \emph{joy}, \emph{distress}, \emph{hope} and \emph{fear} to set its posture during the game.
+%The posture of this embodied agent is an underlying expression over
 
 \subsection{Enhancing the game interface with behaviours}
 nextplayer
