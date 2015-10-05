@@ -1,52 +1,79 @@
 \fancychapter{Introduction}
 \label{sec:introduction}
 
-\todo[inline]{Rewrite the introduction removing the focus from the elderly. The focus is now building a social player for a card game scenario. The chosen game is played by everyone, even seniors!!!!}
-The world population is ageing dramatically and as such, the society needs to change and embrace this problem in many different ways. The elderly have specific needs, physical and cognitive, that are often not considered in the way we, as a society, organise our lives.
-Some of these concerns are recently being solved with the help of technology and may range from computer programs to intelligent robots.
-For instance, elderly with mobility disabilities may be guided by a robot while walking through the house \cite{Pollack2002}.
-Another example is software for stimulating and training memory problems of Aphasia, a language disorder caused by brain damage \cite{Pompili2011}.
+Games have been a subject of particular interest to the \ac{ai} field over the years, and the reason apparently is their complexity.
+From board games to card games, or even role-playing games, the goal of these computer programs is to create rational agents capable of evaluating the game and achieving the best outcome possible.
+Three remarkable artificial players that have raised the bar for developing this kind of agents were: Deep Blue, the first artificial chess player that defeated a human world champion in 1997 \cite{Campbell2002}; Chinook, a checkers program that proved the game leads to a draw with two optimal players \cite{Schaeffer1996}; and Watson, the \ac{qa} system that beat the two highest ranked Jeopardy players in 2011 \cite{Ferrucci2010}.
 
-However, existing technology with elderly purposes is commonly focused on health care.
-When dealing with aged people with no serious health problems and that are still capable of doing their regular daily tasks, there is still a need to occupy their free time with pleasuring activities.
-Finding appropriate tasks supported by technology may include the training of their cognitive functions or just accompany them.
-In order to join these two purposes of accompany and train their reasoning, an artificial game player could be a suitable solution.
-Several embodied agents for game playing exist, such as the iCat chess tutor \cite{Affective2007} and the \ac{emys} Risk player \cite{Pereira}.%, nevertheless these scenarios were not applied to aged people.
-These examples have inspired the idea of exploring a card game scenario, that can exemplify an activity that aged people enjoy doing.
+However, different games introduce different challenges and when comparing, for instance, card games to board games, there are unknown information and the element of chance to consider.
+As a result, \ac{ai} researchers have been dealing with card games in recent years and some of them are still unsolved.
+
+Since \ac{ai} has another interesting branch that aims to build agents that act humanly, the artificial players previously mentioned can evolve to another level of interaction during the game.
+In other words, a certain artificial player for a specified game can be adapted and integrated in an embodied agent to play while interacting with other players.
+These kind of embodied agents include virtual entities and physical robots and their interactions with humans concern to the \ac{hri} field.
+Some agents of this nature can illustrate this idea, such as the iCat chess tutor \cite{Affective2007} and the \ac{emys} Risk player \cite{Pereira}.
+Additionally, this last two examples explore different challenges through an \ac{hri} point of view: the iCat has the role of tutoring while targeting young population; \ac{emys} plays as an opponent.
+
+These examples have inspired the idea of creating a card game scenario, where an embodied agent can play with human players.
+Considering some of existing card games are still unsolved challenges for \ac{ai}, and trying to bring other interesting roles for \ac{hri}, \emph{Sueca} seems to grant all these requirements.
+It is a Portuguese card game, known in Portugal and Brazil by different age groups, especially the elderly.
+Since the four players are divided into two teams, each one has two opponents and one team companion.
+These two roles together have not been studied yet in an artificial embodied game player, which might bring relevant achievements to the \ac{hri}.
+
+Another advantage of exploring this scenario is the fact of enabling a varied audience, including the elderly, since the world population is ageing dramatically.
+The elderly have specific needs, physical and cognitive, that are often not considered in the way we, as a society, organise our lives.
+Some of these concerns are recently being solved with the help of technology and may range from computer programs to intelligent robots.
+However, existing technology with elderly purposes is commonly focused on health care, and when dealing with aged people with no serious health problems, that are still capable of doing their regular daily tasks, there is still a need to occupy their free time with pleasuring activities.
+Therefore, the social robot this project aims to create might be used for further studies with elder care purposes.
+
+Overall, the game-playing embodied agent must, at the same time, (i) be able to play competently the card game; and (ii) interact socially. The first skill requires such agent to include an AI module that is able to reason strategically about the game. The second skill requires an emotional/social module that enables the agent to behave in a manner that is socially believable.
+
+
+
+%\todo[inline]{Rewrite the introduction removing the focus from the elderly. The focus is now building a social player for a card game scenario. The chosen game is played by everyone, even seniors!!!!}
+
+%The world population is ageing dramatically and as such, the society needs to change and embrace this problem in many different ways. The elderly have specific needs, physical and cognitive, that are often not considered in the way we, as a society, organise our lives.
+%Some of these concerns are recently being solved with the help of technology and may range from computer programs to intelligent robots.
+%For instance, elderly with mobility disabilities may be guided by a robot while walking through the house \cite{Pollack2002}.
+%Another example is software for stimulating and training memory problems of Aphasia, a language disorder caused by brain damage \cite{Pompili2011}.
+
+%However, existing technology with elderly purposes is commonly focused on health care.
+%When dealing with aged people with no serious health problems and that are still capable of doing their regular daily tasks, there is still a need to occupy their free time with pleasuring activities.
+%Finding appropriate tasks supported by technology may include the training of their cognitive functions or just accompany them.
+%In order to join these two purposes of accompany and train their reasoning, an artificial game player could be a suitable solution.
+%Several embodied agents for game playing exist, such as the iCat chess tutor \cite{Affective2007} and the \ac{emys} Risk player \cite{Pereira}.%, nevertheless these scenarios were not applied to aged people.
+%These examples have inspired the idea of exploring a card game scenario, that can exemplify an activity that aged people enjoy doing.
 %Several embodied agents for game playing exist, such as the iCat chess tutor \cite{Affective2007} and the \ac{emys} Risk player \cite{Pereira}, nevertheless these scenarios were not applied to aged people.
 
-Overall, a card game is an entertainment activity that aged people are used to do and, at the same time, might help them training their cognitive functions.
-As a result, considering some of existing card games are still unsolved challenges for \ac{ai}, the goal of this project is to integrate a social robot with aged humans in a card game scenario.
-This project is a great opportunity to relate all the concerns mentioned above.
+%Overall, a card game is an entertainment activity that aged people are used to do and, at the same time, might help them training their cognitive functions.
+%As a result, considering some of existing card games are still unsolved challenges for \ac{ai}, the goal of this project is to integrate a social robot with aged humans in a card game scenario.
+%This project is a great opportunity to relate all the concerns mentioned above.
 %On one hand, the proposed agent should play the game correctly, which means, after analysing the given hand, dealt at the beginning of the game, it should make good choices about what cards should be played.
 %On the other hand, this embodied agent should act accordingly to the environment of this scenario and every player should be engaged in the game with its interaction and behaviours.
-A game-playing companion for elder people must, at the same time, (i) be able to play competently the card game; and (ii) interact socially. The first skill requires such agent to include an AI module that is able to reason strategically about the game. The second skill requires an emotional/social module that enables the agent to behave in a manner that is socially believable.
+%A game-playing companion for elder people must, at the same time, (i) be able to play competently the card game; and (ii) interact socially. The first skill requires such agent to include an AI module that is able to reason strategically about the game. The second skill requires an emotional/social module that enables the agent to behave in a manner that is socially believable.
 
 
-Computer programs that play games have been an interesting challenge for \ac{ai}.
-From board to card games, or even role-playing games, the goal is to create rational agents capable of evaluating the game and achieving the best outcome.
-Deep Blue, Chinook and Watson are good examples that have raised the bar for developing this kind of agents.
-Deep Blue is a remarkable chess player and has defeated the human world champion in 1997 \cite{Campbell2002}.
-Schaeffer et al. have solved Checkers with Chinook program and proved the game leads to a draw with two optimal players \cite{Schaeffer1996}.
-Lastly, Watson is the \ac{qa} system that has beat the two highest ranked Jeopardy players in 2011 \cite{Ferrucci2010}.
+%Computer programs that play games have been an interesting challenge for \ac{ai} over the years.
+%From board to card games, or even role-playing games, the goal is to create rational agents capable of evaluating the game and achieving the best outcome.
+%The challenging aspect, present in most games, is the ability of anticipating the best achievable reward of making every possible move and, therefore, choosing the best action.
+%Deep Blue, Chinook and Watson are good examples that have raised the bar for developing this kind of agents.
+%Deep Blue is a remarkable chess player and has defeated the human world champion in 1997 \cite{Campbell2002}.
+%Schaeffer et al. have solved Checkers with Chinook program and proved the game leads to a draw with two optimal players \cite{Schaeffer1996}.
+%Lastly, Watson is the \ac{qa} system that has beat the two highest ranked Jeopardy players in 2011 \cite{Ferrucci2010}.
 %\ac{qa} systems are extremely impressive due to the scope of \ac{ai} they include (i.e. natural language processing, machine learning, knowledge representation, automated reasoning, and information retrieval).
-All these agents are good baselines to improve \ac{ai} in games.
+%All these agents are good baselines to improve \ac{ai} in games.
 
-
-Besides building programs that try to think rationally or humanly, \ac{ai} has also another branch that aims to act humanly \cite{Russell2009}.
-This concern arises from the inclusion of robots in humans' life and influences the way they interact and communicate with people.
-Consequently, robots have to behave properly in those environments, considering they are surrounded by humans.
-The \ac{hri} field explores these concerns of integrating robots with humans in a social environment.
-Since this field descends from \ac{hci}, it also inherits the user centred development that establishes the prior need of doing user studies.
-
-
+%On the other hand, \ac{ai} has also another interesting branch that aims to act humanly \cite{Russell2009}.
+%This concern arises from the inclusion of robots in humans' life and influences the way they interact and communicate with people.
+%Consequently, robots have to behave properly in those environments, considering they are surrounded by humans.
+%The \ac{hri} field explores these concerns of integrating robots with humans in social environments.
+%Since this field descends from \ac{hci}, it also inherits the user centred development that establishes the prior need of doing user studies.
+%However, robots introduce more complex questions related to their physical embodiment and, usually, are present in very limited scenarios.
 %Consequently, technology that covers this point has concerns related with the feeling of objectification, loss of responsibilities and privacy \cite{Should2010}.
 
-
-
-Lastly, the chosen card game is \emph{Sueca}, a well known Portuguese game among the ageing population.
-It is a four-player game with two teams and involves an opponent and a companion role for the agent.
-Regarding \ac{hri} concerns, these two roles together have not been studied yet in an artificial embodied game player.
+%Lastly, the chosen card game is \emph{Sueca}, a well known Portuguese game among the ageing population.
+%It is a four-player game with two teams and involves an opponent and a companion role for the agent.
+%Regarding \ac{hri} concerns, these two roles together have not been studied yet in an artificial embodied game player.
 
 
 
