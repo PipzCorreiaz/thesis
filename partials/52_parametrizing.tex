@@ -1,0 +1,44 @@
+\section{Measuring parametrization effects}
+\label{sec:parametrizing}
+
+After implementing the \ac{pimc} search previously described, some tests were executed in order to observe the effects of different parametrizations.
+However, these tests had to be comparative and a baseline was required to establish a standard measure.
+
+
+\subsection{Rule-based Agent}
+The baseline agent was called Rule-based and its main idea was to chose a move considering predefined rules, instead of using hard computational algorithms.
+The following pseudo-code illustrates the deliberation process of this agent.
+
+\begin{algorithm}
+	\caption{Rule-based Sueca algorithm}
+	\begin{algorithmic}[1]
+		\Procedure{RuleBasedDecision}{InfoSet $I$}
+			\State $HighestCardPerSuit$ = GetHighestCardPerSuitFromHand($I$)
+			\ForAll {$h \in HighestCardPerSuit$}
+				\If{isHighestUnplayedFromSuit($h$)}
+					\If{GetSuit($h$) = TRUMP \&\& CountCardsFromSuit($I$) > 5}
+						\State \textbf{return} h
+					\ElsIf{GetSuit($h$) $\not=$ TRUMP \&\& CountCardsFromSuit($I$) > 5}
+						\State \textbf{break}
+					\ElsIf{GetSuit($h$) $\not=$ TRUMP}
+						\State \textbf{return} h
+					\EndIf
+				\EndIf
+			\EndFor
+			\State \textbf{return} GetLowestCardFromHand($I$)
+		\EndProcedure
+	\end{algorithmic}
+	\label{alg:pimc}
+\end{algorithm}
+
+It starts by collecting the highest cards of each allowed suit for the current play.
+The possibility of playing such a highest card is granted by two requirements: being the highest unplayed card of that suit; and not holding at least other 5 cards from that suit, except for the trump suit.
+Otherwise, this rule-based player return the lowest possible card.
+
+The first experiments to test this baseline player compared four different scenarios:
+\begin{itemize}
+\item (A) 10000 games with 1 Rule-based player with 3 Random players;
+\item (B) 10000 games with 2 Rule-based players against 2 Random players;
+\item (C) 10000 games with 2 Rule-based player and 1 Random player against 2 Random
+\item (D)
+\end{itemize}
