@@ -7,7 +7,7 @@ However, these tests had to be comparative and a baseline was required to establ
 
 \subsection{Rule-based Agent}
 The baseline agent was called Rule-based and its main idea was to chose a move considering predefined rules, instead of using hard computational algorithms.
-The following pseudo-code illustrates the deliberation process of this agent.
+The following pseudo-code illustrates the deliberation process of this agent and tries to roughly reproduce the reasoning of a non-professional human player.
 
 \begin{algorithm}
 	\caption{Rule-based Sueca algorithm}
@@ -35,10 +35,39 @@ It starts by collecting the highest cards of each allowed suit for the current p
 The possibility of playing such a highest card is granted by two requirements: being the highest unplayed card of that suit; and not holding at least other 5 cards from that suit, except for the trump suit.
 Otherwise, this rule-based player return the lowest possible card.
 
-The first experiments to test this baseline player compared four different scenarios:
+The first experiments to test this baseline player compare three different scenarios:
 \begin{itemize}
-\item (A) 10000 games with 1 Rule-based player with 3 Random players;
-\item (B) 10000 games with 2 Rule-based players against 2 Random players;
-\item (C) 10000 games with 2 Rule-based player and 1 Random player against 2 Random
-\item (D)
+\item (a) 1000 games with 4 Rule-based players;
+\item (b) 1000 games with 1 Rule-based player and 3 Random players;
+\item (c) 1000 games with 2 Rule-based players against 2 Random players.
 \end{itemize}
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/HA-4RuleBased}
+                \caption{Scenario A}
+                \label{fig:histogramA}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/HB-1RuleBased_3Random}
+                \caption{Scenario B}
+                \label{fig:histogramB}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/HC-2RuleBased_2Random}
+                \caption{Scenario C}
+                \label{fig:histogramC}
+        \end{subfigure}
+        \caption[Histograms of the final points obtained in the 3 scenarios]{Histograms of the final points obtained in 1000 games by: (a) one of the teams; (b) the team with 1 Rule-based player and 1 Random player; (c) the team with 2 Rule-based players}
+        \label{fig:histograms}
+\end{figure}
+
+In scenario A, results are very balanced, as expected, because all players have the same deliberation process.
+In 1000 games one of the teams obtained a winning percentage of 48,5\% and a drawing percentage 1,9\%.
+The scenario B shows that a team with 1 Rule-based player and 1 Random player can beat a 2 Random players team 56,6\% othe games
+
+
+
+
+
