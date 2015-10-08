@@ -5,7 +5,7 @@ After implementing the \ac{pimc} search previously described, some tests were ex
 However, these tests had to be comparative and a baseline or benchmark was required to establish a standard measure.
 
 
-\subsection{Rule-based Agent}
+\subsection{Creating benchmarks}
 The baseline agent was called Rule-based and its main idea was to chose a move considering predefined rules, instead of using hard computational algorithms.
 The following pseudo-code illustrates the deliberation process of this agent and tries to roughly reproduce the reasoning of a non-professional human player.
 
@@ -74,9 +74,9 @@ However, comparing the three histograms gets easier when merging the three fitti
 \end{figure}
 
 In scenario (a), results were very balanced, as expected, because all players had the same deliberation process.
-In 1000 games one of the teams obtained a winning percentage of 48,5\%, a drawing percentage of 1,9\% and a losing percentage of 49,6\%.
-The scenario (b) showed that a team with 1 Rule-based player and 1 Random player can beat a 2 Random players team with a winning percentage of 56,6\%, a drawing percentage of 1,8\% and a losing percentage of 41,6\%.
-Finally, in scenario (c), the team with 2 Rule-based players beat the the 2 Random players with the highest winning percentage of 61,1\%, a drawing percentage of 1,8\% and losing percentage of 37,1\%.
+In 1000 games one of the teams obtained a winning percentage of 48.5\%, a drawing percentage of 1.9\% and a losing percentage of 49.6\%.
+The scenario (b) showed that a team with 1 Rule-based player and 1 Random player can beat a 2 Random players team with a winning percentage of 5.6\%, a drawing percentage of 1.8\% and a losing percentage of 41.6\%.
+Finally, in scenario (c), the team with 2 Rule-based players beat the the 2 Random players with the highest winning percentage of 61.1\%, a drawing percentage of 1.8\% and losing percentage of 37.1\%.
 
 A player's performance can only be measured when playing with different players, otherwise, playing a considerable amount of games will balance the winning and losing rates, as seen in scenario (a).
 Additionally, theses results also demonstrated the impact of the team player on the team score, since having 2 Rule-based players in the same team increased the winning rate of the team with only 1 Rule-based player.
@@ -94,7 +94,7 @@ In order to derive such characteristics, the first step is to presume and collec
 After that, computing a linear regression on that data to decide the relevant features.
 In the first iterations of this process, many variables were tested for one player of the team and also for both.
 For instance, the total points, the trump points, the number of aces, the number of sevens, the number of trumps, being the first to play, having the trump ace, the number of suits.
-However, many of them were rejected by the null hypothesis with a significance level of 0,05, and the remaining features were only three: team aces number, team sevens number and team trumps number.
+However, many of them were rejected by the null hypothesis with a significance level of 0.05, and the remaining features were only three: team aces number, team sevens number and team trumps number.
 
 \begin{figure}[h!]
   \centering
@@ -128,13 +128,21 @@ Although the model has a low r-squared value, the p-values of the predictors can
 \end{figure}
 
 Finally, Figure~\ref{fig:fitFunctions} can help to quantify the importance of each feature and to build the domain values for each class (\emph{hard}, \emph{medium} and \emph{low}).
-Regarding the Figure~\ref{fig:teamTrumpsNumber}, the numbers of initial trumps held by a team, where at least 60\% of the samples were lost games, are 1, 2 and 3.
-In the same way, the numbers of initial trumps held by a team, where ate least 60\% of the samples were won games, are 7, 8 and 9.
-Applying the same procedure to the three predictor variables, the decided \emph{hard} initial conditions to a team (with low probability of winning) are to have at most 3 trumps, at most 1 ace and at most 1 seven.
-Conversely, the decided \emph{easy} initial conditions to a team (with high probability of winning) are to have at least 7 trumps, at least 3 ace and at least 3 seven.
+Regarding the Figure~\ref{fig:teamTrumpsNumber}, the numbers of initial trumps held by a team, where at least 60\% of the samples were lost games, are 1, 2, 3 and 4..
+In the same way, the numbers of initial trumps held by a team, where ate least 60\% of the samples were won games, are 6, 7, 8 and 9.
+Applying the same procedure to the three predictor variables, the decided \emph{hard} initial conditions to a team (with low probability of winning) are to have at most 4 trumps, at most 1 ace and at most 1 seven.
+Conversely, the decided \emph{easy} initial conditions to a team (with high probability of winning) are to have at least 6 trumps, at least 3 ace and at least 3 seven.
 Other cases are considered as \emph{medium} hands.
 
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.7\textwidth]{./img/5/classifiedPercentages}
+  \caption{Linear jdskfkedf}
+\label{fig:classifiedPercentages}
+\end{figure}
 
+On top of the developed classification, the new benchmark for evaluating the \ac{pimc} algorithm is the favourable games percentage (in which the team drew or won) for the three types of initial hands.
+As shown in Figure~\ref{fig:classifiedPercentages}, three conclusions can be observed: \emph{easy} initial hands led to won or drew games 100\% of the times in every scenario; the only scenario with the favourable games percentage higher than 0\% with \emph{hard} initial hands was (c); and obtained favourable games percentage in scenarios (a), (b) and (c) were 50.6\% 59.0\% 63.5\%, respectively.
 
 
 
