@@ -76,7 +76,7 @@ However, comparing the three histograms gets easier when merging the three fitti
 
 In scenario (a), results were very balanced, as expected, because all players had the same deliberation process.
 In 1000 games one of the teams obtained a winning percentage of 48.5\%, a drawing percentage of 1.9\% and a losing percentage of 49.6\%.
-The scenario (b) showed that a team with 1 Rule-based player and 1 Random player can beat a 2 Random players team with a winning percentage of 5.6\%, a drawing percentage of 1.8\% and a losing percentage of 41.6\%.
+The scenario (b) showed that a team with 1 Rule-based player and 1 Random player can beat a 2 Random players team with a winning percentage of 51.6\%, a drawing percentage of 1.8\% and a losing percentage of 41.6\%.
 Finally, in scenario (c), the team with 2 Rule-based players beat the the 2 Random players with the highest winning percentage of 61.1\%, a drawing percentage of 1.8\% and losing percentage of 37.1\%.
 
 A player's performance can only be measured when playing with different players, otherwise, playing a considerable amount of games will balance the winning and losing rates, as seen in scenario (a).
@@ -169,12 +169,12 @@ Nevertheless, regarding \emph{easy} initial conditions, the team with 1 Rule-bas
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.7\textwidth]{./img/5/ABC-fr}
+    \includegraphics[width=0.7\textwidth]{./img/5/ABC-frg}
   \caption{filipa}
-\label{fig:ABC-fr}
+\label{fig:ABC-frg}
 \end{figure}
 
-Additionally, the \acp{fgr}, presented in Figure~\ref{fig:ABC-fr}, measure the effectiveness of players when competing with each other.
+Additionally, the \acp{fgr}, presented in Figure~\ref{fig:ABC-frg}, measure the effectiveness of players when competing with each other.
 This rate also evidenced that the Rule-based player outperforms the Random player, mainly based on the \ac{fgr} of the \emph{medium} hands, in which the confidence is higher due to number of samples.
 
 In sum, the Rule-based player guided the development of new measures and will be the benchmark for evaluating the \ac{pimc} algorithm.
@@ -204,7 +204,7 @@ In order to observe the Trick player performance, it will be considered the foll
 \item (e) 1000 games with 2 Trick players against 2 Rule-based players [orange].
 \end{itemize}
 
-The \ac{fgr} of the team with 1 Trick player and 1 Rule-based (d) was 52,8\% (50,5\% won games and 2,3\% drew games), and at the same time, the \ac{fgr} of the team with 2 Trick players (e) was 55,6\% (53,4\% won games and 2,2\% drew games).
+The \ac{fgr} of the team with 1 Trick player and 1 Rule-based (d) was 52.8\% (50.5\% won games and 2.3\% drew games), and at the same time, the \ac{fgr} of the team with 2 Trick players (e) was 55.6\% (53.4\% won games and 2.2\% drew games).
 In the same way of the difference between scenarios (b) and (c), having two Trick players on the same team significantly improves the results when compared to only one.
 This evidence was expected, since \emph{Sueca} is a team game.
 
@@ -217,6 +217,44 @@ This evidence was expected, since \emph{Sueca} is a team game.
 
 Additionally, Figure~\ref{fig:ADE} presents the distributions of the 1000 obtained final scores from each scenario.
 Scenario (a, green) was also included to provide a guide of equilibrium.
-The scenario (d, yellow) has its Gaussian fitting curve nearly coincident with the scenario (a), suggesting one Trick player in a team does not influence the results.
-On the other hand, scenario (e, orange) has a higher distribution between 60 and 80 points.
+The Gaussian fitting curve of scenario (d, yellow) is nearly coincident with the one of scenario (a), suggesting one Trick player in a team does not influence the results.
+On the other hand, a team with 2 Trick players, scenario (e, orange), evidences a higher distribution between 60 and 80 points.
+These conclusions are also supported by the \acp{fgr} of 50.4\%, 50.5\% and 53.4\% from the teams of scenarios (a), (d) and (e), respectively.
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/ADEhard}
+                \caption{filipa}
+                \label{fig:ADEhard}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/ADEmedium}
+                \caption{filipa}
+                \label{fig:ADEmedium}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/ADEeasy}
+                \caption{filipa}
+                \label{fig:ADEeasy}
+        \end{subfigure}
+        \caption{filipa}
+        \label{fig:ADE-CH}
+\end{figure}
+
+When analysing the Gaussian fitting curves divided into the classes of initial hands, results agree with previous conclusions, except for the \emph{hard} classification of initial conditions.
+So, in scenario (e, orange) the team of 2 Trick players achieved higher scores with \emph{hard} and \emph{medium} hands, while with \emph{easy} hands the modal values of the three scenarios seem to be concurrent.
+However, as previously mentioned, out of each 1000 collected games, a few percentage refers to games with \emph{hard} or \emph{easy} initial conditions (between 2\% and 3\% each one), which means the apparent results from \emph{hard} and \emph{easy} initial conditions have low confidence values.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.7\textwidth]{./img/5/ADE-frg}
+  \caption{filipa}
+\label{fig:ADE-frg}
+\end{figure}
+
+Moreover, the \acp{fgr} in Figure~\ref{fig:ADE-frg} evidenced that the Trick player slightly outperforms the Rule-based player, mainly based on the \ac{fgr} of the \emph{medium} hands, in which the confidence is higher due to number of samples.
+The unexpected differences on scenario (d) with both \emph{hard} and \emph{easy} initial conditions refer to only one game, in both cases, and may reflect some flaws on the classification inferred from the linear regression.
+
+
 
