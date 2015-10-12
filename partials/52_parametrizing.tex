@@ -37,10 +37,11 @@ Otherwise, this rule-based player return the lowest possible card.
 
 The first experiments to test this baseline player compare three different scenarios:
 \begin{itemize}
-\item (a) 1000 games with 4 Rule-based players;
-\item (b) 1000 games with 1 Rule-based player and 3 Random players;
-\item (c) 1000 games with 2 Rule-based players against 2 Random players.
+\item (a) 1000 games with 4 Rule-based players [dark green];
+\item (b) 1000 games with 1 Rule-based player and 3 Random players [red];
+\item (c) 1000 games with 2 Rule-based players against 2 Random players [dark blue].
 \end{itemize}
+Each scenario has a corresponding colour that will be used in every chart for the same scenario.
 
 \begin{figure}[h]
         \centering
@@ -134,9 +135,9 @@ Applying the same procedure to the three predictor variables, the decided \emph{
 Conversely, the decided \emph{easy} initial conditions to a team (with high probability of winning) are to have at least 6 trumps, at least 3 ace and at least 3 seven.
 Other cases are considered as \emph{medium} hands.
 
-The developed classifications will be used in two different measures: (1) the favourable games rate (won or drew games); (2) the histogram of obtained points by a certain team.
+The developed classifications will be used in two different measures: (1) the \ac{fgr}, which means the percentage of won or drew games; (2) the histogram of obtained points by a certain team.
 The first measure is more general and is used to compare the effective performance of players.
-On the other hand, the second measure details the points distribution, since the same favourable games rates can lead to different histogram of the final points.
+On the other hand, the second measure details the points distribution, since the same \acp{fgr} can lead to different histogram of the final points.
 
 \begin{figure}[h]
         \centering
@@ -160,7 +161,7 @@ On the other hand, the second measure details the points distribution, since the
 \end{figure}
 
 Figure~\ref{fig:ABC-CH} shows the distribution of the final points obtained in scenarios (a), (b) and (c) divided into the three mentioned classifications.
-The goal of dividing Figure~\ref{fitHistABC} is to see if the detected differences play a prominent role in each individual initial hand type.
+The goal of dividing Figure~\ref{fig:fitHistABC} is to see if the detected differences play a prominent role in each individual initial hand type.
 However, out of each 1000 collected games, a few percentage refers to games with \emph{hard} or \emph{easy} initial conditions (between 2\% and 3\% each one), which means the apparent results from \emph{hard} and \emph{easy} initial conditions have low confidence values.
 The final points of a team are higher as its Gaussian fitting curve moves to the right in the x axe.
 Hence, the distribution charts for \emph{hard} and \emph{medium} evidence the same results: the team with 1 Rule-based player (b) achieved higher final scores and the team with 2 Ruled-based players (c) obtained even higher when compared to 4 Random players (a).
@@ -173,15 +174,49 @@ Nevertheless, regarding \emph{easy} initial conditions, the team with 1 Rule-bas
 \label{fig:ABC-fr}
 \end{figure}
 
-Additionally, the favourable games rates (won or drew games), presented in Figure~\ref{fig:ABC-fr}, measure the effectiveness of players when competing with each other.
-This rate also evidenced that the Rule-based player outperforms the Random player, mainly based on the favourable games rate of the \emph{medium} hands, in which the confidence is higher due to number of samples.
+Additionally, the \acp{fgr}, presented in Figure~\ref{fig:ABC-fr}, measure the effectiveness of players when competing with each other.
+This rate also evidenced that the Rule-based player outperforms the Random player, mainly based on the \ac{fgr} of the \emph{medium} hands, in which the confidence is higher due to number of samples.
 
 In sum, the Rule-based player guided the development of new measures and will be the benchmark for evaluating the \ac{pimc} algorithm.
 
+
 \subsection{The Trick Player}
 
+The \ac{pimc} algorithm, implemented as described in Section~\ref{sec:implementing}, cannot explore complete trees until the middle of the game, and therefore, the depth had to be limited.
+So, the first two possible parametrizations of the algorithm were the depth limit and the \emph{N} that defines the number of different distributions to be sampled while choosing a card to play.
+As a result, two distinct branches were clear, creating a version with a low depth limit and a high \emph{N} value, and another one that has a higher depth limit with lower \emph{N} values.
+Additionally, the third possible parametrization is the utility function used by the player.
 
+The Trick player, as the name suggests, evaluates only one trick of every game tree (depth limit of 1) and samples 1000 different distributions (\emph{N} value).
+Its utility function is modelled by:
+\begin{equation} \label{eq:uf1}
+u_1 = \left\{
+                \begin{array}{ll}
+                  currentTeamPoints, & currentTeamPoints \geq otherTeamPoints\\
+                  - otherTeamPoints, & currentTeamPoints < otherTeamPoints
+                \end{array}
+              \right.
+\end{equation}
 
+In order to observe the Trick player performance, it will be considered the following scenarios:
+\begin{itemize}
+\item (d) 1000 games with 1 Trick player and 3 Rule-based players [yellow];
+\item (e) 1000 games with 2 Trick players against 2 Rule-based players [orange].
+\end{itemize}
 
+The \ac{fgr} of the team with 1 Trick player and 1 Rule-based (d) was 52,8\% (50,5\% won games and 2,3\% drew games), and at the same time, the \ac{fgr} of the team with 2 Trick players (e) was 55,6\% (53,4\% won games and 2,2\% drew games).
+In the same way of the difference between scenarios (b) and (c), having two Trick players on the same team significantly improves the results when compared to only one.
+This evidence was expected, since \emph{Sueca} is a team game.
 
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{./img/5/ADE}
+  \caption{filipa}
+\label{fig:ADE}
+\end{figure}
+
+Additionally, Figure~\ref{fig:ADE} presents the distributions of the 1000 obtained final scores from each scenario.
+Scenario (a, green) was also included to provide a guide of equilibrium.
+The scenario (d, yellow) has its Gaussian fitting curve nearly coincident with the scenario (a), suggesting one Trick player in a team does not influence the results.
+On the other hand, scenario (e, orange) has a higher distribution between 60 and 80 points.
 
