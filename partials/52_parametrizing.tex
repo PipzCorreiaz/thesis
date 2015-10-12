@@ -188,6 +188,7 @@ As a result, two distinct branches were clear, creating a version with a low dep
 Additionally, the third possible parametrization is the utility function used by the player.
 
 The Trick player, as the name suggests, evaluates only one trick of every game tree (depth limit of 1) and samples 1000 different distributions (\emph{N} value).
+The mean time of its deliberation process for each move is 0.13 seconds.
 Its utility function is modelled by:
 \begin{equation} \label{eq:uf1}
 u_1 = \left\{
@@ -258,3 +259,70 @@ The unexpected differences on scenario (d) with both \emph{hard} and \emph{easy}
 
 
 
+\subsection{The Deep-1 Player}
+
+In contract to the last player, which has a low depth limit and high \emph{N} value, the Deep-1 player has the highest reasonable depth limit and lower \emph{N} values.
+In other words, each time this player has to choose a move, it sets the maximum depth limit considering it has to sample at least 30 different distributions and its deliberation time must be less than 2 seconds.
+Figure~\ref{fig:nDepthLimits} shows the chosen \emph{N} values and depth limits for each tree size, and also the explored depth percentage.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.7\textwidth]{./img/5/nDepthLimits}
+  \caption{\emph{N} values and depth limits for each tree size, and also the explored depth percentage}
+\label{fig:nDepthLimits}
+\end{figure}
+Additionally, the mean time of its deliberation process for each move is 0.6 seconds and its utility function is the same of the Trick player, presented in Equation~\ref{eq:uf1}.
+
+In order to observe the Deep-1 player performance, it will be considered the following scenarios:
+\begin{itemize}
+\item (f) 1000 games with 1 Deep-1 player and 3 Rule-based players [pink];
+\item (g) 1000 games with 2 Deep-1 players against 2 Rule-based players [purple].
+\end{itemize}
+
+The overall \ac{fgr} of the team with 1 Deep-1 player and 1 Rule-based (d) was 58.3\% (57.6\% won games and 0.7\% drew games), and at the same time, the \ac{fgr} of the team with 2 Deep-1 players (e) was 64.2\% (62.7\% won games and 1.5\% drew games).
+In the same way of the difference between scenarios (d) and (e), having two Deep-1 players on the same team significantly improves the results when compared to only one.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{./img/5/DEFG}
+  \caption{filipa}
+\label{fig:DEFG}
+\end{figure}
+
+Figure~\ref{fig:DEFG} presents the Gaussian fitting curves of the scenarios (d) and (e) as reference points, and scenarios (f) and (g).
+The final points obtained by the team with one Deep-1 player and one Rule-based (f, pink) were higher than the ones obtained by the team with one Trick and one Rule-based (d, yellow), which is visible from the density between 80 and 120 points.
+At the same time, the team with two Deep-1 players present a higher discrepancy from the team with two Trick players.
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/DEFGhard}
+                \caption{filipa}
+                \label{fig:DEFGhard}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/DEFGmedium}
+                \caption{filipa}
+                \label{fig:DEFGmedium}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/DEFGeasy}
+                \caption{filipa}
+                \label{fig:DEFGeasy}
+        \end{subfigure}
+        \caption{filipa}
+        \label{fig:DEFG-CH}
+\end{figure}
+
+Figure~\ref{fig:DEFG-CH} presents the Gaussian fitting curves of final points achieved by
+By comparing results on \emph{medium} initial conditions, from scenario (d) to
+\todo[inline]{Complete this}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.7\textwidth]{./img/5/ABC-frg}
+  \caption{filipa}
+\label{fig:ABC-frg}
+\end{figure}
+
+\todo[inline]{Comente FGR}
