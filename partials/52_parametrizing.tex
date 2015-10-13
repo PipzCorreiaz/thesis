@@ -169,12 +169,12 @@ Nevertheless, regarding \emph{easy} initial conditions, the team with 1 Rule-bas
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.7\textwidth]{./img/5/ABC-frg}
+    \includegraphics[width=0.7\textwidth]{./img/5/ABC-fgr}
   \caption{filipa}
-\label{fig:ABC-frg}
+\label{fig:ABC-fgr}
 \end{figure}
 
-Additionally, the \acp{fgr}, presented in Figure~\ref{fig:ABC-frg}, measure the effectiveness of players when competing with each other.
+Additionally, the \acp{fgr}, presented in Figure~\ref{fig:ABC-fgr}, measure the effectiveness of players when competing with each other.
 This rate also evidenced that the Rule-based player outperforms the Random player, mainly based on the \ac{fgr} of the \emph{medium} hands, in which the confidence is higher due to number of samples.
 
 In sum, the Rule-based player guided the development of new measures and will be the benchmark for evaluating the \ac{pimc} algorithm.
@@ -193,8 +193,8 @@ Its utility function is modelled by:
 \begin{equation} \label{eq:uf1}
 u_1 = \left\{
                 \begin{array}{ll}
-                  currentTeamPoints, & currentTeamPoints \geq otherTeamPoints\\
-                  - otherTeamPoints, & currentTeamPoints < otherTeamPoints
+                  teamPoints, & teamPoints \geq opponentTeamPoints\\
+                  - opponentTeamPoints, & teamPoints < opponentTeamPoints
                 \end{array}
               \right.
 \end{equation}
@@ -249,12 +249,12 @@ However, as previously mentioned, out of each 1000 collected games, a few percen
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.7\textwidth]{./img/5/ADE-frg}
+    \includegraphics[width=0.7\textwidth]{./img/5/ADE-fgr}
   \caption{filipa}
-\label{fig:ADE-frg}
+\label{fig:ADE-fgr}
 \end{figure}
 
-Moreover, the \acp{fgr} in Figure~\ref{fig:ADE-frg} evidenced that the Trick player slightly outperforms the Rule-based player, mainly based on the \ac{fgr} of the \emph{medium} hands, in which the confidence is higher due to number of samples.
+Moreover, the \acp{fgr} in Figure~\ref{fig:ADE-fgr} evidenced that the Trick player slightly outperforms the Rule-based player, mainly based on the \ac{fgr} of the \emph{medium} hands, in which the confidence is higher due to number of samples.
 The unexpected differences on scenario (d) with both \emph{hard} and \emph{easy} initial conditions refer to only one game, in both cases, and may reflect some flaws on the classification inferred from the linear regression.
 
 
@@ -290,8 +290,8 @@ In the same way of the difference between scenarios (d) and (e), having two Deep
 \end{figure}
 
 Figure~\ref{fig:DEFG} presents the Gaussian fitting curves of the scenarios (d) and (e) as reference points, and scenarios (f) and (g).
-The final points obtained by the team with one Deep-1 player and one Rule-based (f, pink) were higher than the ones obtained by the team with one Trick and one Rule-based (d, yellow), which is visible from the density between 80 and 120 points.
-At the same time, the team with two Deep-1 players present a higher discrepancy from the team with two Trick players.
+The final points obtained by the team with 1 Deep-1 player and 1 Rule-based (f, pink) were higher than the ones obtained by the team with 1 Trick and 1 Rule-based (d, yellow), which is visible from the density between 80 and 120 points.
+Similarly, the team with 2 Deep-1 players also has its Gaussian fitting curve on the right of the team with 2 Trick players, suggesting its achieved final points were higher.
 
 \begin{figure}[h]
         \centering
@@ -314,15 +314,102 @@ At the same time, the team with two Deep-1 players present a higher discrepancy 
         \label{fig:DEFG-CH}
 \end{figure}
 
-Figure~\ref{fig:DEFG-CH} presents the Gaussian fitting curves of final points achieved by
-By comparing results on \emph{medium} initial conditions, from scenario (d) to
-\todo[inline]{Complete this}
+Figure~\ref{fig:DEFG-CH} presents the Gaussian fitting curves of scenarios (d), (e), (f) and (g) divided by the three initial hands conditions.
+By comparing results of \emph{medium} initial conditions, from scenarios (d) to (g), each evaluated teams incrementally improves the previous one.
+On the other hand, both teams from scenarios (f) and (g) underperform the achieved final scores for \emph{hard} initial hands and outperform the achieved finals cores for \emph{easy} initial hands when compared to scenarios (d) and (e).
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.7\textwidth]{./img/5/ABC-frg}
+    \includegraphics[width=0.7\textwidth]{./img/5/DEFG-fgr}
   \caption{filipa}
-\label{fig:ABC-frg}
+\label{fig:DEFG-fgr}
 \end{figure}
 
-\todo[inline]{Comente FGR}
+Finally, the last Figure~\ref{fig:DEFG-fgr} comparing the Deep-1 player and the Trick player agrees with previous conclusions and emphasises the effective competing results of Deep-1 player.
+
+
+\subsection{The Deep-2 Player}
+
+The last configuration of the \ac{pimc} algorithm is the Deep-2 player.
+Its difference from the Deep-1 player is the utility function, modelled by Equation~\ref{eq:uf2}.
+
+\begin{equation} \label{eq:uf2}
+u_2 = \left\{
+                \begin{array}{ll}
+                  2, & teamPoints > 90\\
+                  1, & teamPoints > 60\\
+                  0.1, & teamPoints > 30\\
+                  -2, & opponentTeamPoints >90\\
+                  -1, & opponentTeamPoints > 60\\
+                  -0.1, & opponentTeamPoints > 30\\
+                \end{array}
+              \right.
+\end{equation}
+
+Instead of maximizing the final points, this utility function groups the final points into 6 possible rewards for the agent and tries to maximize the number of won games.
+The main advantage of this utility function is the time spent on the game search, since there are more nodes with the same rewards, and therefore some $\alpha\beta$-cuts occur earlier.
+On the other hand, when limiting the depth of the search, without any heuristic, \ac{pimc} algorithm may be misled to worse nodes.
+
+In order to observe the Deep-2 player performance, it will be considered the following scenarios:
+\begin{itemize}
+\item (h) 1000 games with 1 Deep-2 player and 3 Rule-based players [light blue];
+\item (i) 1000 games with 2 Deep-2 players against 2 Rule-based players [light green].
+\end{itemize}
+
+The overall \ac{fgr} of the team with 1 Deep-2 player and 1 Rule-based (d) was 58.6\% (57.3\% won games and 1.3\% drew games), and at the same time, the \ac{fgr} of the team with 2 Deep-1 players (e) was 62.6\% (61.79\% won games and 0.7\% drew games).
+In the same way of the difference between scenarios (f) and (g), having two Deep-2 players on the same team significantly improves the results when compared to only one, although \acp{fgr} have decreased from the last scenarios.
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[h]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/FH}
+                \caption{filipa}
+                \label{fig:FH}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/GI}
+                \caption{filipa}
+                \label{fig:GI}
+        \end{subfigure}
+        \caption{filipa}
+        \label{fig:FGHI}
+\end{figure}
+
+Figure~\ref{fig:FH} presents the Gaussian fitting curves of scenario (h) compared to scenario (f), at the same time Figure~\ref{fig:GI} presents the Gaussian fitting curves of scenario (i) compared to scenario (g).
+The two main considerations about these charts are the modal values of scenario (g, light blue) in the frontier of winning results; also, the team with 2 Deep-2 players underperforms the obtained points of the team with 2 Deep-1 players.
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/FGHIhard}
+                \caption{filipa}
+                \label{fig:FGHIhard}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/FGHImedium}
+                \caption{filipa}
+                \label{fig:FGHImedium}
+        \end{subfigure}
+        \begin{subfigure}[h]{0.32\textwidth}
+                \includegraphics[width=\textwidth]{./img/5/FGHIeasy}
+                \caption{filipa}
+                \label{fig:FGHIeasy}
+        \end{subfigure}
+        \caption{filipa}
+        \label{fig:FGHI-CH}
+\end{figure}
+
+Figure~\ref{fig:FGHI-CH}, as shown for other scenarios, divides the histogram fitting curves of final points into the classifications of the initial conditions.
+Slight deviations with the \emph{hard} and \emph{easy} initial conditions are negligible, due to the discrepancy of samples in each scenario.
+The \emph{medium} initial conditions chart evidences the similarities in the four approaches.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.7\textwidth]{./img/5/FGHI-fgr}
+  \caption{filipa}
+\label{fig:FGHI-fgr}
+\end{figure}
+
+Additionally, Figure~\ref{FGHI-fgr} presents the \acp{fgr} of scenarios (f), (g), (h) and (i), suggesting Deep-2 player underperforms the Deep-1 player.
+
+
