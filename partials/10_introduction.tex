@@ -1,33 +1,35 @@
 \fancychapter{Introduction}
-\label{sec:introduction}
+\label{chapter:introduction}
 
-Games have been a subject of particular interest to the \ac{ai} field over the years, and the reason is the complexity of computationally solving them.
-From board games to card games, or even role-playing games, the goal of these computer programs is to create rational agents capable of evaluating the game and achieving the best outcome possible.
+Games have been a subject of particular interest to the \ac{ai} field over the years, and the reason for that is the complexity of computationally solving them.
+From board games to card games, or even role-playing games, the goal of these computer programs is to create rational agents capable of evaluating the game and achieving the best possible outcome.
 Three remarkable artificial players that raised the bar for developing this kind of agents were: Deep Blue, the first artificial chess player that defeated a human world champion in 1997 \cite{Campbell2002}; Chinook, a checkers program that proved the game leads to a draw with two optimal players \cite{Schaeffer1996}; and Watson, the \ac{qa} system that beat the two highest ranked Jeopardy players in 2011 \cite{Ferrucci2010}.
 
-However, different games introduce different challenges due to their properties and some of them tend to be even more complex.
+However, different games introduce different challenges due to their properties and some of them varying complexity.
 For instance, most card games add to board games two properties: unknown information (hidden cards) and the element of chance.
-As a result, \ac{ai} researchers have been dealing with card games in recent years, when compared to board games, and some card games remain unsolved challenges these days.
+As a result, \ac{ai} researchers have been dealing with card games in recent years, and some card games remain unsolved even today.
 
 Since \ac{ai} has another interesting branch that aims to build agents that act humanly, the artificial players previously mentioned can evolve to another level of interaction during the game.
-In other words, a certain artificial player for a specified game can be adapted and integrated in an embodied agent to play while interacting with other players.
-These kind of embodied agents cab be either virtual entities or physical robots, and the study of their interactions with humans belongs to the \ac{hri} field.
-Some agents of this nature can illustrate this idea, such as the iCat chess tutor \cite{Affective2007} and the \ac{emys} Risk player \cite{Pereira}.
-Additionally, this last two examples explore different challenges through an \ac{hri} point of view: the iCat has the role of tutoring while targeting young population; \ac{emys} plays as an opponent.
+In other words, a certain artificial player for a specified game can be adapted and integrated into an embodied agent to play while interacting with other players.
+This kind of embodied agents can either be virtual entities or physical robots, and the study of their interactions with humans belongs to the \ac{hri} field.
+Some agents of this nature illustrate this idea, such as the iCat chess tutor \cite{Affective2007} and the \ac{emys} Risk player \cite{Pereira}.
+Additionally, these last two examples explore different challenges from an \ac{hri} point of view: the iCat has the role of tutoring while targeting young population; \ac{emys} plays as an opponent.
 
-These examples have inspired the idea of creating a card game scenario, where an embodied agent can play with human players.
-Considering some card games are still unsolved challenges for \ac{ai}, and trying to bring relevant achievements for \ac{hri}, \emph{Sueca} seems to grant all these requirements.
-It is a Portuguese card game, known in Portugal and Brazil by different age groups, especially by the elderly.
+These examples have inspired the idea of creating a card game scenario where an embodied agent plays with human players.
+Considering some card games are still unsolved challenges for \ac{ai}, and also trying to bring relevant achievements for \ac{hri}, the game of \emph{Sueca} seems to meet all these requirements.
+It is a Portuguese card game, known in Portugal and Brazil across many age groups, especially the elderly.
 Since the four players are divided into two teams, each one has two opponents and one team companion.
-These two roles together have not been studied yet in an artificial embodied game player.
+These two roles together have not yet been studied in an artificial embodied game player.
 
-Another advantage of exploring this scenario is the fact of enabling a varied audience, including the elderly, since the world population is ageing dramatically.
-The elderly have specific needs, physical and cognitive, that are often not considered in the way we, as a society, organise our lives.
-Some of these concerns are recently being solved with the help of technology and may range from computer programs to intelligent robots.
-However, existing technology with elderly purposes is commonly focused on health care, and when dealing with aged people with no serious health problems, that are still capable of doing their regular daily tasks, they still need to occupy their free time with leisure activities.
+Another advantage of exploring this scenario is that it reaches a diverse audience that includes the elderly, which is an increasingly important point considering the world population is ageing dramatically.
+%the fact of enabling a varied audience, including the elderly, since the world population is ageing dramatically.
+The elderly have specific needs, physical and cognitive, that are often not considered in the way we, as a society, conduct our lives.
+Some of these concerns are recently being solved with the help of technology which may range from computer programs to intelligent robots.
+However, existing technology with elderly purposes is commonly focused on health care, and when dealing with aged people with no serious health problems, that are still capable of doing their regular daily tasks, occupying their free time with leisure activities is also a necessity for their well-being.
+%they still need to occupy their free time with leisure activities.
 Therefore, the social robot this project aims to create might be used for further studies with elder care purposes.
 
-Overall, the game-playing embodied agent must, at the same time, (i) be able to play competently the card game; and (ii) interact socially. The first skill requires the agent to include an AI module that is able to reason strategically about the game. The second skill requires an emotional/social module that enables the agent to behave in a manner that is socially believable.
+Overall, the game-playing embodied agent must, at the same time, (i) be able to competently play the card game; and (ii) interact socially. The first skill requires the agent to include an AI module that is able to reason strategically about the game. The second skill requires an emotional/social module that enables the agent to behave in a manner that is socially believable.
 
 
 \section{Goals}
@@ -35,15 +37,16 @@ Overall, the game-playing embodied agent must, at the same time, (i) be able to 
 
 The main goals of this project are:
 \begin{itemize}
-\item To develop a robotic agent capable of playing competently the \emph{Sueca} card game;
+\item To develop a robotic agent capable of competently playing the \emph{Sueca} card game;
 \item To include social behaviours on an embodied agent in order to act according to the game state;
-\item To evaluate the correctness and advantages of the proposed system.
+\item To evaluate how users perceive this robotic player during a \emph{Sueca} game.
+% the correctness and advantages of the proposed system.
 \end{itemize}
 
 \section*{\centering*}
 
-\todo[inline]{Review the outline of the document}
-The next section presents some background research that helps the reader understand the problems further mentioned (Section~\ref{sec:background}).
-The report proceeds with the state-of-art of playing card-games and human-robot-interaction with the elderly (Section~\ref{sec:related-work}).
-Additionally, it reveals a pilot user study (Section~\ref{chapter:user-studies}).
-Finally, it presents the architecture, its evaluation methodology and the final conclusions.
+The next section presents some background research that helps the reader understand the problems further mentioned, Chapter~\ref{chapter:background}.
+The report proceeds with the state-of-art of playing card-games and human-robot-interaction, Chapter~\ref{chapter:related-work}.
+Additionally, it reveals a user-centred study, Chapter~\ref{chapter:user-studies}.
+Moreover, it describes how the three mentioned goals were achieved in Chapters~\ref{chapter:artificial-player}, \ref{chapter:sueca-player} and \ref{chapter:results}, respectively.
+Finally, it presents the final conclusions and future work, Chapter~\ref{chapter:conclusion}.
