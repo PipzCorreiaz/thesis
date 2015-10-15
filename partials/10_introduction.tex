@@ -8,8 +8,12 @@ Three remarkable artificial players that raised the bar for developing this kind
 However, different games introduce different challenges due to their properties and some of them varying complexity.
 For instance, most card games add to board games two properties: unknown information (hidden cards) and the element of chance.
 As a result, \ac{ai} researchers have been dealing with card games in recent years, and some card games remain unsolved even today.
+The game of Poker illustrates this idea since most \acp{ai} still have to deal with limited versions of the game\cite{Zinkevich}
 
-Since \ac{ai} has another interesting branch that aims to build agents that act humanly, the artificial players previously mentioned can evolve to another level of interaction during the game.
+Another point is the social component present in most games, specially multi-players.
+The dynamics of these games are strongly attached to players' interactions and can, therefore, enhance the game experience.
+Hence, the artificial players previously mentioned can evolve to another level of interaction during the game.
+%Since \ac{ai} has another interesting branch that aims to build agents that act humanly, the artificial players previously mentioned can evolve to another level of interaction during the game.
 In other words, a certain artificial player for a specified game can be adapted and integrated into an embodied agent to play while interacting with other players.
 This kind of embodied agents can either be virtual entities or physical robots, and the study of their interactions with humans belongs to the \ac{hri} field.
 Some agents of this nature illustrate this idea, such as the iCat chess tutor \cite{Affective2007} and the \ac{emys} Risk player \cite{Pereira}.
@@ -29,24 +33,30 @@ However, existing technology with elderly purposes is commonly focused on health
 %they still need to occupy their free time with leisure activities.
 Therefore, the social robot this project aims to create might be used for further studies with elder care purposes.
 
-Overall, the game-playing embodied agent must, at the same time, (i) be able to competently play the card game; and (ii) interact socially. The first skill requires the agent to include an AI module that is able to reason strategically about the game. The second skill requires an emotional/social module that enables the agent to behave in a manner that is socially believable.
+%Overall, the game-playing embodied agent must, at the same time, (i) be able to competently play the card game; and (ii) interact socially. The first skill requires the agent to include an AI module that is able to reason strategically about the game. The second skill requires an emotional/social module that enables the agent to behave in a manner that is socially believable.
 
 
-\section{Goals}
-\label{sec:goals}
+\section*{Thesis problem}
+\label{sec:problem}
 
-The main goals of this project are:
-\begin{itemize}
-\item To develop a robotic agent capable of competently playing the \emph{Sueca} card game;
-\item To include social behaviours on an embodied agent in order to act according to the game state;
-\item To evaluate how users perceive this robotic player during a \emph{Sueca} game.
+The challenge this thesis proposes is the development of a social agent, which, embodied in an expressive robotic entity, can efficiently play \emph{Sueca} with and against human players whilst interacting with them throughout the game.
+%The main goals of this project are:
+%\begin{itemize}
+%\item To develop a robotic agent capable of competently playing the \emph{Sueca} card game;
+%\item To include social behaviours on an embodied agent in order to act according to the game state;
+%\item To evaluate how users perceive this robotic player during a \emph{Sueca} game.
 % the correctness and advantages of the proposed system.
-\end{itemize}
+%\end{itemize}
+
+\section*{Contributions}
+The first contribution this thesis presents is an artificial intelligent \emph{Sueca} player using the Perfect Information Monte-Carlo algorithm.
+Secondly, this thesis also introduces a social \emph{Sueca} agent, capable of interacting with human players according to the game state.
+Furthermore, this social robotic partner proved to be comparable to human partners in many different measures, and also to positively change other players' affect after the game.
 
 \section*{\centering*}
 
-The next section presents some background research that helps the reader understand the problems further mentioned, Chapter~\ref{chapter:background}.
+The next chapter presents some background research that helps the reader understand the problems further mentioned, Chapter~\ref{chapter:background}.
 The report proceeds with the state-of-art of playing card-games and human-robot-interaction, Chapter~\ref{chapter:related-work}.
-Additionally, it reveals a user-centred study, Chapter~\ref{chapter:user-studies}.
-Moreover, it describes how the three mentioned goals were achieved in Chapters~\ref{chapter:artificial-player}, \ref{chapter:sueca-player} and \ref{chapter:results}, respectively.
+Additionally, Chapters~\ref{chapter:artificial-player} addresses the artificial intelligent \emph{Sueca} player.
+Moreover, a user-centred study is revealed in Chapter~\ref{chapter:user-studies}, preceding the implementation of the social agent in Chapter~\ref{chapter:sueca-player} and its corresponding results in Chapter~\ref{chapter:results}.
 Finally, it presents the final conclusions and future work, Chapter~\ref{chapter:conclusion}.
