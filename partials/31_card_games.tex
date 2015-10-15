@@ -1,14 +1,14 @@
 \section{AI in games}
 
 %%% jogos tem sido um grande desafio
-\ac{ai} has been solving many games over the years, however, the definition of "games" usually refers to zero-sum and perfect information games.
+\ac{ai} has been solving many games over the years, however, the definition of ``games'' usually refers to zero-sum and perfect information games.
 These kind of games are commonly solved by creating a tree representing all possible states and searching for the optimal, or a nearly optimal, solution.
 The greatest achievements related to perfect information games are generally based on finding good heuristics to refine the search and also good prunings to reduce the search space.
 Deep Blue can exemplify this idea \cite{Campbell2002}, it uses an iterative-deepening alpha-beta search and the key of its success is mostly the null move heuristic and the futility pruning.
 Another example is Chinook, also a perfect information game that was solved using alpha-beta search \cite{Schaeffer1996}.
 
 %%% perfect e imperfect nao se resolvem da mesma maneira
-Nevertheless, \emph{Sueca} is considered an imperfect information game, as described in Section~\ref{sec:background}, and this class of games is usually solved by one of three different approaches \cite{Cowling2012}.
+Nevertheless, \emph{Sueca} is considered an imperfect information game, as described in Section~\ref{sec:sueca}, and this class of games is usually solved by one of three different approaches \cite{Cowling2012}.
 The first one, and the most popular, is based on Monte-Carlo Methods.
 Then, another possible approach is trying to compute a Nash equilibrium strategy or an approximation thereof.
 Lastly, belief distributions involving game state inferences and opponent models can also be used.
@@ -30,7 +30,7 @@ Since some of these domains remain a challenge for traditional \ac{ai} technique
 %%% diferenca entre MCTS e PIMC
 In order to solve a hidden information game, the first challenge is to deal with information sets.
 The most used approach to solve it is determinization, which samples choice nodes instead of considering all of them in an unique set.
-Applying this approach to \ac{mcts} is known as \ac{pimc}.
+The combination of this approach to Monte-Carlo Methods is known as \ac{pimc}.
 For instance, in a card game scenario, each iteration of \ac{pimc} samples the cards distributions for all players and the simulation process of the game behaves as a perfect information game.
 In other words, during the simulation each player makes decisions as if his opponents' cards are visible.
 The first successful implementation of this technique was \ac{gib} \cite{Ginsberg2001}.
@@ -68,7 +68,7 @@ Since Skat presents strong similarities to \emph{Sueca}, it is expected that \ac
 
 
 %%%  cowling propose ISMCTS
-Cowling et al. have also investigated the application of \ac{mcts} to hidden information games \cite{Cowling2012}.
+Cowling et al. have also investigated the application of \ac{mcts}\footnote{\ac{mcts} algorithm builds a search tree according to the results of previous iterations by sampling unknown informations.} to hidden information games \cite{Cowling2012}.
 Their research supports a new descendant family of algorithms, \ac{ismcts}.
 \ac{ismcts} works with information sets, instead of game states and uses determinization to sample the game, however producing a single tree.
 The main advantages are the computational budget efficiency and the fact of suffering less from \emph{strategy fusion} than \ac{pimc}.
@@ -103,30 +103,28 @@ The authors revealed the great potential of this approach when applied to trick-
 %Due to the similarity between \emph{Sueca} and Skat, it is predictable that Monte-Carlo methods might produce good results in our domain.
 %However, assuming that different \ac{mcts} variations produce the exact same behaviour, in different domains, might be a mistake, considering they have specific characteristics. % esta errado
 
-The advantages and disadvantages of the mentioned \ac{mcts} variations are clearly summarised in Table~\ref{tab:algorithms}.
+The advantages and disadvantages of the mentioned \ac{mcts} variations for imperfect informations games are clearly summarised in Table~\ref{tab:algorithms}.
 Both of three techniques are easy to parallel and allow an offline computation. However, \ac{ismcts} uses the computational budget more efficiently than the other two techniques, and \ac{iimc} allows different player models per player.
 Disadvantages show all the three techniques have the \emph{non-locality} and \emph{strategy fusion} problem, although \emph{strategy fusion} is lower in \ac{ismcts} and \ac{iimc}.
-Another relevant disadvantage is the computational burden that \ac{ismcts} and \ac{iimc} add, when compared to \ac{pimc}.
+%Another relevant disadvantage is the computational burden that \ac{ismcts} and \ac{iimc} add, when compared to \ac{pimc}.
 %Despite having a better computational budget, applying \ac{ismcts} to \emph{Sueca} should produce a similar behaviour to Dou Di Zhu, due to the high branching factor in the information set tree.
 %The usage of different player models can be helpful to turn the game to an imperfect information game and, consequently, reduce the \emph{strategy fusion} problem.
 
-
-
-
+Overall, the chosen approach for the \emph{Sueca} domain is \ac{pimc}, since it will be used at runtime and this algorithm seems to provide the lightest computational burden to do that.
 
 
 
 \subsection{Game State Inference \& Opponent Modelling}
 
 
-While discussing imperfect information games, belief distributions, game state inference and opponent modelling are another relevant subjects to consider.
+While discussing imperfect information games, belief distributions, game state inference and opponent modelling are other relevant subjects to consider.
 Predicting some of the opponents' cards or other clues would be beneficial to select better actions at each state of the game. Additionally, inferring hidden information, while using a Monte-Carlo based method, can also decrease the \emph{non-locality} problem \cite{Cowling2012}.
 %This problem is known as finding the distribution $P$(world\textbar move) for a move played in an hypothetical world.
 
 
 Buro in 2009 \cite{Buro} presented his work on state evaluation and inference that has been included in his Skat player.
 His approach combines two techniques, one for evaluating the bidding and another for selecting hypothetical worlds during the game play.
-The former technique uses a logistic regression to evaluate the winning probability of each hand and it has 22 million Skat games as data base.
+The former technique uses logistic regression to evaluate the winning probability of each hand and it has 22 million Skat games as data base.
 This winning probability determines the strength of a hand and can, therefore, be used on the bidding.
 
 
