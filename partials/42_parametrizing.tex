@@ -2,36 +2,15 @@
 \label{sec:parametrizing}
 
 After implementing the \ac{pimc} search previously described, some tests were executed in order to observe the effects of different parametrizations.
-However, these tests had to be comparative and a baseline or benchmark was required to establish a standard measure.
+These tests had to be comparative and a baseline or benchmark was required to establish a standard measure.
 
 
 \subsection{Creating benchmarks}
 The baseline agent was called Rule-based and its main idea was to chose a move considering predefined rules, instead of using hard computational algorithms.
-The following pseudo-code illustrates the deliberation process of this agent and tries to roughly reproduce the reasoning of a non-professional human player.
+It tries to roughly reproduce the reasoning of a non-professional human player.
+%The following pseudo-code illustrates the deliberation process of this agent and tries to roughly reproduce the reasoning of a non-professional human player.
 
-\begin{algorithm}
-	\caption{Rule-based Sueca algorithm}
-	\begin{algorithmic}[1]
-		\Procedure{RuleBasedDecision}{InfoSet $I$}
-			\State $HighestCardPerSuit$ = GetHighestCardPerSuitFromHand($I$)
-			\ForAll {$h \in HighestCardPerSuit$}
-				\If{isHighestUnplayedFromSuit($h$)}
-					\If{GetSuit($h$) = TRUMP \&\& CountCardsFromSuit($I$) > 5}
-						\State \textbf{return} h
-					\ElsIf{GetSuit($h$) $\not=$ TRUMP \&\& CountCardsFromSuit($I$) > 5}
-						\State \textbf{break}
-					\ElsIf{GetSuit($h$) $\not=$ TRUMP}
-						\State \textbf{return} h
-					\EndIf
-				\EndIf
-			\EndFor
-			\State \textbf{return} GetLowestCardFromHand($I$)
-		\EndProcedure
-	\end{algorithmic}
-	\label{alg:pimc}
-\end{algorithm}
-
-It starts by collecting the highest cards of each allowed suit for the current play.
+Its procedure starts by collecting the highest cards of each allowed suit for the current play.
 The possibility of playing such a highest card is granted by two requirements: being the highest unplayed card of that suit; and not holding at least other 5 cards from that suit, except for the trump suit.
 Otherwise, this rule-based player return the lowest possible card.
 
@@ -82,7 +61,8 @@ Finally, in scenario (c), the team with 2 Rule-based players beat the the 2 Rand
 A player's performance can only be measured when playing with different players, otherwise, playing a considerable amount of games will balance the winning and losing rates, as seen in scenario (a).
 Additionally, theses results also demonstrated the impact of the team player on the team score, since having 2 Rule-based players in the same team increased the winning rate of the team with only 1 Rule-based player.
 
-In addition to these conclusions, the winning rates achieved by 1 Rule-based (scenario (b)) and 2 Rule-based (scenario (c)) were lower than expected, since their opponents have completely random procedures for playing the game.
+%In addition to these conclusions, the winning rates achieved by 1 Rule-based (scenario (b)) and 2 Rule-based (scenario (c)) were lower than expected, since their opponents have completely random procedures for playing the game.
+In addition to these conclusions, considering the opponents of both teams in scenarios (b) and (c) have completely random procedures for playing the game, their winning rates were expected to be more expressive.
 A possible reason might be \emph{Sueca}'s element of chance, which means certain hands can limit the result even though the opponents are Random players.
 
 This idea incited some research on the influence of the players' initial conditions on the game result.
@@ -261,7 +241,7 @@ The unexpected differences on scenario (d) with both \emph{hard} and \emph{easy}
 
 \subsection{The Deep-1 Player}
 
-In contract to the last player, which has a low depth limit and high \emph{N} value, the Deep-1 player has the highest reasonable depth limit and lower \emph{N} values.
+In contrast to the last player, which has a low depth limit and high \emph{N} value, the Deep-1 player has the highest reasonable depth limit and lower \emph{N} values.
 In other words, each time this player has to choose a move, it sets the maximum depth limit considering it has to sample at least 30 different distributions and its deliberation time must be less than 2 seconds.
 Figure~\ref{fig:nDepthLimits} shows the chosen \emph{N} values and depth limits for each tree size, and also the explored depth percentage.
 
@@ -412,4 +392,14 @@ The \emph{medium} initial conditions chart evidences the similarities in the fou
 
 Additionally, Figure~\ref{FGHI-fgr} presents the \acp{fgr} of scenarios (f), (g), (h) and (i), suggesting Deep-2 player underperforms the Deep-1 player.
 
+\subsection{Conclusion}
 
+In order to clearly compare both developed parametrizations of \ac{pimc} algorithm, Figure~\ref{fig:DFH-fgr} summarizes the \ac{fgr} achieved by each player when playing with and against Rule-based players.
+Therefore, Deep-1 was the chosen player to participate in the user studies described in Chapter~\ref{chapter:results}.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.7\textwidth]{./img/4/DFH-fgr}
+  \caption{filipa}
+\label{fig:DFH-fgr}
+\end{figure}
