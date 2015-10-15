@@ -1,7 +1,7 @@
 \section{Architecture Overview}
 \label{section:architecture-overview}
 
-The model presented in Figure~\ref{fig:model} organises all the components involved in this system and their communications.
+The architecture presented in Figure~\ref{fig:architecture} organises all the components involved in this system and their communications.
 It considers a scenario where an embodied agent plays a physical card game against human players over a touch table.
 
 \begin{figure}[ht]
@@ -12,16 +12,15 @@ It considers a scenario where an embodied agent plays a physical card game again
 \end{figure}
 
 First of all, this model distinguishes physical components from virtual ones.
-However, some entities are presented as both physical and virtual components and will not be detailed since their usage in this system did not demand any extensions for the scope of our domain (\emph{Touch Table}, \emph{Sensory Component} and \emph{Embodied Agent}).
+However, some entities are presented as both physical and virtual components and will not be detailed since their usage in this system did not demand any extensions for the scope of our domain (\emph{Touch Table}, \emph{Embodiment} and \emph{Text To Speech (TTS)}).
 
 The basic work-flow that illustrates the main functionalities of each component is as follows.
 The human players, \emph{Users}, play with physical cards on top of a \emph{Touch Table}, and their game actions are managed by the \emph{Game Application} and communicated to both the \emph{\ac{ai}} and the \emph{Decision Maker}.
-\todo[inline]{check the sensory components!}
-Besides their game actions, \emph{Users} also produce another sort of events that are captured by the \emph{Sensory Component} and handled by the \emph{Perception Manager}, for instance, face movements or the source direction of spoken interactions.
+%Besides their game actions, \emph{Users} also produce another sort of events that are captured by the \emph{Sensory Component} and handled by the \emph{Perception Manager}, for instance, face movements or the source direction of spoken interactions.
 The \emph{\ac{ai}} includes all the reasoning about the game and decides the next move of the artificial player.
-However, the \emph{Embodied Agent} will not only play a certain card, but will also include social behaviours.
+However, the \emph{Embodiment} will not only play a certain card, but will also include social behaviours.
 As a result, the \emph{Decision Maker} balances the \emph{\ac{ai}} decisions and game information to produce an appropriate sequence of behaviours and inform them to \emph{Behaviour Planner}.
-Lastly, the \emph{Behaviour Planner}, after receiving high-level intention-directed instructions, builds a suitable plan to execute the chosen instructions, considering the state of the \emph{Embodied Agent}, information from \emph{Perception Manager}, and additional game information from the \emph{Game Application}.
+Lastly, the \emph{Behaviour Planner}, after receiving high-level intention-directed instructions, builds a suitable plan to execute the chosen instructions, considering the state of the \emph{Embodiment} and \emph{TTS} and additional game information from the \emph{Game Application}.
 
 \begin{figure}[ht]
   \centering
@@ -30,7 +29,6 @@ Lastly, the \emph{Behaviour Planner}, after receiving high-level intention-direc
 \label{fig:model}
 \end{figure}
 
-\todo[inline]{confirmar com o Tiago se sai uma seta do skene para o unity!!!}
 The previously described architecture is instantiated as shown in Figure~\ref{fig:model} and the blue modules are thalamus communicating entities.
 This concept arises from the Thalamus Framework \cite{Ribeiro}, which enables the usage of entities that can be registered at runtime in a server in order to send and receive specific messages.
 These entities are publishers and subscribers of the channels they want to write on and listen to, respectively.
@@ -40,6 +38,7 @@ The \emph{Unity Game} module is responsible for displaying the interface of the 
 
 The chosen \emph{Behaviour Planner} is \emph{Skene} \cite{Ribeiroa}, which tightens the communication between the world and an embodied agent with a high-level behaviour description language, also known as utterances.
 These utterances might include instructions for gazing, pointing, animating or sound, among other things.
-Additionally, considering some instructions require target positions or other game information, Skene subscribes to \emph{Unity game} messages to keep that information updated.
+Additionally, considering some instructions require target positions or other game information, \emph{Skene} subscribes to \emph{Unity game} messages to keep that information updated.
 
-The \emph{\ac{ai}} and \emph{FAtiMA} modules answer to our primary goals, for that reason, their implementations are carefully detailed in Section~\ref{sec:artificial_player} and Section~\ref{sec:social_player}, respectively.
+The \emph{\ac{ai}} module contains an instance of the Deep-1 Player presented in Chapter~\ref{chapter:artificial-player}.
+Moreover, the implementation of \emph{FAtiMA} module, as decision maker of our \emph{Sueca} player, is carefully described in the following section.
