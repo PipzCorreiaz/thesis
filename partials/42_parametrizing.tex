@@ -6,7 +6,7 @@ These tests had to be comparative and a baseline or benchmark was required to es
 
 
 \subsection{Creating benchmarks}
-The baseline agent was called Rule-based and its main idea was to chose a move considering predefined rules, instead of using hard computational algorithms.
+The baseline agent was called Rule-based and its main idea was to choose a move considering predefined rules, instead of using hard computational algorithms.
 It tries to roughly reproduce the reasoning of a non-professional human player.
 %The following pseudo-code illustrates the deliberation process of this agent and tries to roughly reproduce the reasoning of a non-professional human player.
 
@@ -54,25 +54,25 @@ However, comparing the three histograms gets easier when merging the three fitti
 \end{figure}
 
 In scenario (a), results were very balanced, as expected, because all players had the same deliberation process.
-In 1000 games one of the teams obtained a winning percentage of 48.5\%, a drawing percentage of 1.9\% and a losing percentage of 49.6\%.
+In 1000 games, one of the teams obtained a winning percentage of 48.5\%, a drawing percentage of 1.9\% and a losing percentage of 49.6\%.
 The scenario (b) showed that a team with 1 Rule-based player and 1 Random player can beat a 2 Random players team with a winning percentage of 51.6\%, a drawing percentage of 1.8\% and a losing percentage of 41.6\%.
 Finally, in scenario (c), the team with 2 Rule-based players beat the the 2 Random players with the highest winning percentage of 61.1\%, a drawing percentage of 1.8\% and losing percentage of 37.1\%.
 
-A player's performance can only be measured when playing with different players, otherwise, playing a considerable amount of games will balance the winning and losing rates, as seen in scenario (a).
+A player's performance can only be measured when playing with different players; otherwise, playing a considerable amount of games will balance the winning and losing rates, as seen in scenario (a).
 Additionally, theses results also demonstrated the impact of the team player on the team score, since having 2 Rule-based players in the same team increased the winning rate of the team with only 1 Rule-based player.
 
 %In addition to these conclusions, the winning rates achieved by 1 Rule-based (scenario (b)) and 2 Rule-based (scenario (c)) were lower than expected, since their opponents have completely random procedures for playing the game.
-In addition to these conclusions, considering the opponents of both teams in scenarios (b) and (c) have completely random procedures for playing the game, their winning rates were expected to be more expressive.
+In addition to these conclusions, considering the opponents of both teams in scenarios (b) and (c) have completely random procedures for playing the game, their winning rates were expected to be lower.
 A possible reason might be \emph{Sueca}'s element of chance, which means certain hands can limit the result even though the opponents are Random players.
 
 This idea incited some research on the influence of the players' initial conditions on the game result.
-On one hand, the power of a hand is completely dependent on the playing manner of each player, and therefore, using Random players to measure this property is inappropriate.
+On the one hand, the power of a hand is completely dependent on the playing style of each player, and therefore, using Random players to measure this property is inappropriate.
 On the other hand, this measure will not be used to carefully predict a hand's effect on the final result.
 Instead, its goal is to generally classify a hand in one out of three distinct categories (\emph{hard}, \emph{medium} and \emph{easy}) and to filter the hands that are hardly or easily capable of winning.
 As a result, the chosen scenario to extract these categories' features was (a).
 
-In order to derive such characteristics, the first step is to presume and collect possible features of the initial game conditions that may influence the final result.
-After that, computing a linear regression on that data to decide the relevant features.
+In order to derive such characteristics, the first step is to speculate and collect possible features of the initial game conditions that may influence the final result.
+The next step is computing a linear regression on that data to decide the relevant features.
 In the first iterations of this process, many variables were tested for one player of the team and also for both.
 For instance, the total points, the trump points, the number of aces, the number of sevens, the number of trumps, being the first to play, having the trump ace, the number of suits.
 However, many of them were rejected by the null hypothesis with a significance level of 0.05, and the remaining features were only three: team aces number, team sevens number and team trumps number.
@@ -108,16 +108,16 @@ Although the model has a low r-squared value, the p-values of the predictors can
         \label{fig:fitFunctions}
 \end{figure}
 
-Finally, Figure~\ref{fig:fitFunctions} can help to quantify the importance of each feature and to build the domain values for each class (\emph{hard}, \emph{medium} and \emph{low}).
-Regarding the Figure~\ref{fig:teamTrumpsNumber}, the numbers of initial trumps held by a team, where at least 60\% of the samples were lost games, are 1, 2, 3 and 4..
+Finally, Figure~\ref{fig:fitFunctions} can help quantifying the importance of each feature and to build the domain values for each class (\emph{hard}, \emph{medium} and \emph{low}).
+Regarding the Figure~\ref{fig:teamTrumpsNumber}, the numbers of initial trumps held by a team, where at least 60\% of the samples were lost games, are 1, 2, 3 and 4.
 In the same way, the numbers of initial trumps held by a team, where ate least 60\% of the samples were won games, are 6, 7, 8 and 9.
-Applying the same procedure to the three predictor variables, the decided \emph{hard} initial conditions to a team (with low probability of winning) are to have at most 4 trumps, at most 1 ace and at most 1 seven.
-Conversely, the decided \emph{easy} initial conditions to a team (with high probability of winning) are to have at least 6 trumps, at least 3 ace and at least 3 seven.
-Other cases are considered as \emph{medium} hands.
+Applying the same procedure to the three predictor variables, the decided \emph{hard} initial conditions to a team (with low probability of winning) are having at most 4 trumps, at most 1 ace and at most 1 seven.
+Conversely, the decided \emph{easy} initial conditions to a team (with high probability of winning) are to have at least 6 trumps, at least 3 aces and at least 3 sevens.
+Other cases are considered \emph{medium} hands.
 
-The developed classifications will be used in two different measures: (1) the \ac{fgr}, which means the percentage of won or drew games; (2) the histogram of obtained points by a certain team.
+The developed classifications will be used in two different measures: (1) the \ac{fgr}, which means the percentage of won or drawn games; (2) the histogram of points obtained by a certain team.
 The first measure is more general and is used to compare the effective performance of players.
-On the other hand, the second measure details the points distribution, since the same \acp{fgr} can lead to different histogram of the final points.
+On the other hand, the second measure details the points distribution, since the same \acp{fgr} can lead to a different histogram of the final points.
 
 \begin{figure}[h]
         \centering
@@ -140,7 +140,7 @@ On the other hand, the second measure details the points distribution, since the
         \label{fig:ABC-CH}
 \end{figure}
 
-Figure~\ref{fig:ABC-CH} shows the distribution of the final points obtained in scenarios (a), (b) and (c) divided into the three mentioned classifications.
+Figure~\ref{fig:ABC-CH} shows the distribution of the final points obtained in scenarios (a), (b) and (c) divided into the three aforementioned classifications.
 The goal of dividing Figure~\ref{fig:fitHistABC} is to see if the detected differences play a prominent role in each individual initial hand type.
 However, out of each 1000 collected games, a few percentage refers to games with \emph{hard} or \emph{easy} initial conditions (between 2\% and 3\% each one), which means the apparent results from \emph{hard} and \emph{easy} initial conditions have low confidence values.
 The final points of a team are higher as its Gaussian fitting curve moves to the right in the x axe.
@@ -179,14 +179,14 @@ u_1 = \left\{
               \right.
 \end{equation}
 
-In order to observe the Trick player performance, it will be considered the following scenarios:
+In order to observe the Trick player performance, the following scenarios will be considered:
 \begin{itemize}
 \item (d) 1000 games with 1 Trick player and 3 Rule-based players [yellow];
 \item (e) 1000 games with 2 Trick players against 2 Rule-based players [orange].
 \end{itemize}
 
-The \ac{fgr} of the team with 1 Trick player and 1 Rule-based (d) was 52.8\% (50.5\% won games and 2.3\% drew games), and at the same time, the \ac{fgr} of the team with 2 Trick players (e) was 55.6\% (53.4\% won games and 2.2\% drew games).
-In the same way of the difference between scenarios (b) and (c), having two Trick players on the same team significantly improves the results when compared to only one.
+The \ac{fgr} of the team with 1 Trick player and 1 Rule-based (d) was 52.8\% (50.5\% won games and 2.3\% drawn games), and at the same time, the \ac{fgr} of the team with 2 Trick players (e) was 55.6\% (53.4\% won games and 2.2\% drawn games).
+In the same way there was a difference between scenarios (b) and (c), having two Trick players on the same team significantly improves the results when compared to only one.
 This evidence was expected, since \emph{Sueca} is a team game.
 
 \begin{figure}[h!]
@@ -197,7 +197,7 @@ This evidence was expected, since \emph{Sueca} is a team game.
 \end{figure}
 
 Additionally, Figure~\ref{fig:ADE} presents the distributions of the 1000 obtained final scores from each scenario.
-Scenario (a, green) was also included to provide a guide of equilibrium.
+Scenario (a, green) was also included to provide a baseline of equilibrium.
 The Gaussian fitting curve of scenario (d, yellow) is nearly coincident with the one of scenario (a), suggesting one Trick player in a team does not influence the results.
 On the other hand, a team with 2 Trick players, scenario (e, orange), evidences a higher distribution between 60 and 80 points.
 These conclusions are also supported by the \acp{fgr} of 50.4\%, 50.5\% and 53.4\% from the teams of scenarios (a), (d) and (e), respectively.
@@ -253,14 +253,14 @@ Figure~\ref{fig:nDepthLimits} shows the chosen \emph{N} values and depth limits 
 \end{figure}
 Additionally, the mean time of its deliberation process for each move is 0.6 seconds and its utility function is the same of the Trick player, presented in Equation~\ref{eq:uf1}.
 
-In order to observe the Deep-1 player performance, it will be considered the following scenarios:
+In order to observe the Deep-1 player performance, the following scenarios will be considered:
 \begin{itemize}
 \item (f) 1000 games with 1 Deep-1 player and 3 Rule-based players [pink];
 \item (g) 1000 games with 2 Deep-1 players against 2 Rule-based players [purple].
 \end{itemize}
 
-The overall \ac{fgr} of the team with 1 Deep-1 player and 1 Rule-based (d) was 58.3\% (57.6\% won games and 0.7\% drew games), and at the same time, the \ac{fgr} of the team with 2 Deep-1 players (e) was 64.2\% (62.7\% won games and 1.5\% drew games).
-In the same way of the difference between scenarios (d) and (e), having two Deep-1 players on the same team significantly improves the results when compared to only one.
+The overall \ac{fgr} of the team with 1 Deep-1 player and 1 Rule-based (d) was 58.3\% (57.6\% won games and 0.7\% drawn games), and at the same time, the \ac{fgr} of the team with 2 Deep-1 players (e) was 64.2\% (62.7\% won games and 1.5\% drawn games).
+In the same way there was a difference between scenarios (d) and (e), having two Deep-1 players on the same team significantly improves the results when compared to only one.
 
 \begin{figure}[h!]
   \centering
@@ -270,7 +270,7 @@ In the same way of the difference between scenarios (d) and (e), having two Deep
 \end{figure}
 
 Figure~\ref{fig:DEFG} presents the Gaussian fitting curves of the scenarios (d) and (e) as reference points, and scenarios (f) and (g).
-The final points obtained by the team with 1 Deep-1 player and 1 Rule-based (f, pink) were higher than the ones obtained by the team with 1 Trick and 1 Rule-based (d, yellow), which is visible from the density between 80 and 120 points.
+The final points obtained by the team with 1 Deep-1 player and 1 Rule-based (f, pink) were higher than the ones obtained by the team with 1 Trick and 1 Rule-based (d, yellow), which is visible in the density between 80 and 120 points.
 Similarly, the team with 2 Deep-1 players also has its Gaussian fitting curve on the right of the team with 2 Trick players, suggesting its achieved final points were higher.
 
 \begin{figure}[h]
@@ -295,8 +295,8 @@ Similarly, the team with 2 Deep-1 players also has its Gaussian fitting curve on
 \end{figure}
 
 Figure~\ref{fig:DEFG-CH} presents the Gaussian fitting curves of scenarios (d), (e), (f) and (g) divided by the three initial hands conditions.
-By comparing results of \emph{medium} initial conditions, from scenarios (d) to (g), each evaluated teams incrementally improves the previous one.
-On the other hand, both teams from scenarios (f) and (g) underperform the achieved final scores for \emph{hard} initial hands and outperform the achieved finals cores for \emph{easy} initial hands when compared to scenarios (d) and (e).
+By comparing results of \emph{medium} initial conditions, from scenarios (d) to (g), each evaluated team incrementally improves the previous one.
+On the other hand, both teams from scenarios (f) and (g) underperform in the achieved final scores for \emph{hard} initial hands and outperform the achieved finals cores for \emph{easy} initial hands when compared to scenarios (d) and (e).
 
 \begin{figure}[h!]
   \centering
@@ -330,14 +330,14 @@ Instead of maximizing the final points, this utility function groups the final p
 The main advantage of this utility function is the time spent on the game search, since there are more nodes with the same rewards, and therefore some $\alpha\beta$-cuts occur earlier.
 On the other hand, when limiting the depth of the search, without any heuristic, \ac{pimc} algorithm may be misled to worse nodes.
 
-In order to observe the Deep-2 player performance, it will be considered the following scenarios:
+In order to observe the Deep-2 player performance, the following scenarios will be considered:
 \begin{itemize}
 \item (h) 1000 games with 1 Deep-2 player and 3 Rule-based players [light blue];
 \item (i) 1000 games with 2 Deep-2 players against 2 Rule-based players [light green].
 \end{itemize}
 
-The overall \ac{fgr} of the team with 1 Deep-2 player and 1 Rule-based (d) was 58.6\% (57.3\% won games and 1.3\% drew games), and at the same time, the \ac{fgr} of the team with 2 Deep-1 players (e) was 62.6\% (61.79\% won games and 0.7\% drew games).
-In the same way of the difference between scenarios (f) and (g), having two Deep-2 players on the same team significantly improves the results when compared to only one, although \acp{fgr} have decreased from the last scenarios.
+The overall \ac{fgr} of the team with 1 Deep-2 player and 1 Rule-based (d) was 58.6\% (57.3\% won games and 1.3\% drawn games), and at the same time, the \ac{fgr} of the team with 2 Deep-1 players (e) was 62.6\% (61.79\% won games and 0.7\% drawn games).
+In the same way there was a difference between scenarios (f) and (g), having two Deep-2 players on the same team significantly improves the results when compared to only one, although \acp{fgr} have decreased from the last scenarios.
 
 \begin{figure}[h]
         \centering
@@ -356,7 +356,7 @@ In the same way of the difference between scenarios (f) and (g), having two Deep
 \end{figure}
 
 Figure~\ref{fig:FH} presents the Gaussian fitting curves of scenario (h) compared to scenario (f), at the same time Figure~\ref{fig:GI} presents the Gaussian fitting curves of scenario (i) compared to scenario (g).
-The two main considerations about these charts are the modal values of scenario (g, light blue) in the frontier of winning results; also, the team with 2 Deep-2 players underperforms the obtained points of the team with 2 Deep-1 players.
+The two main considerations about these charts are the modal values of scenario (g, light blue) in the frontier of winning results; also, the team with 2 Deep-2 players underperforms in the obtained points of the team with 2 Deep-1 players.
 
 \begin{figure}[h]
         \centering
@@ -390,12 +390,12 @@ The \emph{medium} initial conditions chart evidences the similarities in the fou
 \label{fig:FGHI-fgr}
 \end{figure}
 
-Additionally, Figure~\ref{FGHI-fgr} presents the \acp{fgr} of scenarios (f), (g), (h) and (i), suggesting Deep-2 player underperforms the Deep-1 player.
+Additionally, Figure~\ref{FGHI-fgr} presents the \acp{fgr} of scenarios (f), (g), (h) and (i), suggesting that the Deep-2 player underperforms the Deep-1 player.
 
 \subsection{Conclusion}
 
 In order to clearly compare both developed parametrizations of \ac{pimc} algorithm, Figure~\ref{fig:DFH-fgr} summarizes the \ac{fgr} achieved by each player when playing with and against Rule-based players.
-Therefore, Deep-1 was the chosen player to participate in the user studies described in Chapter~\ref{chapter:results}.
+Taking the results into account, Deep-1 was the chosen player to participate in the user studies described in Chapter~\ref{chapter:results}.
 
 \begin{figure}[h!]
   \centering

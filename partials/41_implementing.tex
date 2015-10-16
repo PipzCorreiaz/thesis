@@ -105,9 +105,9 @@ Furthermore, another heuristic was used, aiming to reduce redundancy in the stat
 When computing Moves($I$), two or more cards of the same suit, with consecutive ranks and with the same value can be considered as the same move, since they produce the same value.
 For instance, holding 3$\clubsuit$, 4$\clubsuit$ and 5$\clubsuit$ on the same hand will produce three equivalent states and therefore, this heuristic produce only one.
 
-Limiting the maximum depth achieved by the MinMax algorithm was another available option, specially for earlier decisions that produce larger trees and the time to compute them was impractical.
-However, considering a non-terminal node as terminal may imply the utility function to be revised or somehow predicted.
-Different parametrizations related to the depth cut are detailed further in Section~\ref{sec:parametrizing}
+Limiting the maximum depth achieved by the MinMax algorithm was another available option, especially for earlier decisions that produce larger trees with impractical compute time.
+However, treating a non-terminal node as terminal may imply a new utility function or even the inclusion of a prediction.
+Different parametrizations related to the depth cut are further detailed in Section~\ref{sec:parametrizing}
 
 %Lastly, to exploit the computational resources and considering the fact that \ac{pimc} can be easily paralleled, the outer loop was divided into the number of \acp{cpu} the machine has.
 %Using a machine with 4 \acp{cpu}, the speed-up is nearly 4.
