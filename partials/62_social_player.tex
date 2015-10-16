@@ -3,7 +3,7 @@
 
 First of all, a social player in a card game scenario is basically a player that can interact with other human players in a proper way according to the game situation.
 Since its behaviours must be as similar as possible to the interactions of human players, the most expressive robot was chosen to embody this player, \ac{emys}.
-Nevertheless, when creating behaviours for an embodied agent, it is important to consider that our perception of a social robot, as a unique entity that interact, is indeed composed of distinct modules that make the robot talk, move, animate, gaze at some point or glance at another.
+Nevertheless, when creating behaviours for an embodied agent, it is important to consider that our perception of a social robot, as a unique entity that interacts, is indeed composed of distinct modules that allow the robot to talk, move, animate, gaze at some point or glance at another.
 For this reason, the architecture, presented in Figure\ref{fig:model}, uses \emph{Skene} as its \emph{Behaviour Planner}.
 \emph{Skene} has its own language, called utterances, that allow the communication with the robot as a single entity.
 These utterances are classified with a category and subcategory and may specify verbal or non-verbal behaviours, as well as both interleaved.
@@ -25,12 +25,12 @@ As a result, these game situations guided the categories and subcategories of th
 \begin{figure}[ht]
 	\centering
     \includegraphics[width=1\textwidth]{./img/6/utterances}
-	\caption{Categories and subtegories of the utterances list}
+	\caption{Categories and subcategories of the utterances list}
 \label{fig:utterances}
 \end{figure}
 
 The final list of 205 distinct utterances was inspired by the collected behaviours and replicated to similar ones in order to enrich interactions and to avoid speech redundancies.
-The annotated non-verbal behaviours were also applied on \emph{emys} during the same game situations, for instance, looking at a played card and analysing its own hand after that, simulating a re-evaluation of the game.
+The annotated non-verbal behaviours were also applied on \ac{emys} during the same game situations, for instance, looking at a played card and analysing its own hand after that, simulating a re-evaluation of the game.
 
 \subsection{Human-like behaviours}
 
@@ -49,7 +49,7 @@ However, the current emotional agent of this \emph{Sueca} player is only using 4
 \label{fig:emotions}
 \end{figure}
 
-One first approach was to subcategorize utterances with emotional states, however, most of the annotated behaviours by human players evidenced they revealed their emotions in few situations during a the game.
+The first approach was to subcategorize utterances with emotional states, however, most of the annotated behaviours by human players evidenced they revealed their emotions in scarce situations during a the game.
 A possible reason may lay on the fact that \emph{Sueca} has the element of chance and unknown information should remain hidden.
 
 As a result, emotional states were used on this social player to subcategorize only utterances of the \emph{Play} category.
@@ -76,5 +76,5 @@ However, there are two main concerns to consider when playing over the touch tab
 Consequently, the two utterances' categories differing from analysed human behaviours were \emph{Next Player} and \emph{Trick End}.
 The first one is different mainly due to the frequency the agent talks to the next player.
 This frequency is higher than the observed by human players in order to enhance this new game experience and encourage players to play on their own times.
-The second pointed difference, in \emph{Trick End} utterances, was not at all captured by human players.
+The second pointed difference, in \emph{Trick End} utterances, was not taken from user-centred studies.
 The pilot experiences evidenced the urge of introducing some cues to remove cards after the trick, and this \emph{Sueca} player warned other players about this.

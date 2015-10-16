@@ -19,8 +19,8 @@ The human players, \emph{Users}, play with physical cards on top of a \emph{Touc
 %Besides their game actions, \emph{Users} also produce another sort of events that are captured by the \emph{Sensory Component} and handled by the \emph{Perception Manager}, for instance, face movements or the source direction of spoken interactions.
 The \emph{\ac{ai}} includes all the reasoning about the game and decides the next move of the artificial player.
 However, the \emph{Embodiment} will not only play a certain card, but will also include social behaviours.
-As a result, the \emph{Decision Maker} balances the \emph{\ac{ai}} decisions and game information to produce an appropriate sequence of behaviours and inform them to \emph{Behaviour Planner}.
-Lastly, the \emph{Behaviour Planner}, after receiving high-level intention-directed instructions, builds a suitable plan to execute the chosen instructions, considering the state of the \emph{Embodiment} and \emph{TTS} and additional game information from the \emph{Game Application}.
+As a result, the \emph{Decision Maker} balances the \emph{\ac{ai}} decisions and game information to produce an appropriate sequence of behaviours and inform them to the \emph{Behaviour Planner}.
+Lastly, the \emph{Behaviour Planner}, after receiving high-level intention-directed instructions, builds a suitable plan to execute the chosen instructions, considering the state of the \emph{Embodiment}, \emph{TTS}, and additional game information from the \emph{Game Application}.
 
 \begin{figure}[ht]
   \centering
@@ -30,11 +30,11 @@ Lastly, the \emph{Behaviour Planner}, after receiving high-level intention-direc
 \end{figure}
 
 The previously described architecture is instantiated as shown in Figure~\ref{fig:model} and the blue modules are thalamus communicating entities.
-This concept arises from the Thalamus Framework \cite{Ribeiro}, which enables the usage of entities that can be registered at runtime in a server in order to send and receive specific messages.
+This concept arises from the Thalamus Framework \cite{Ribeiro}, which enables the usage of entities that can be registered at runtime in a server so it becomes possible to send and receive specific messages.
 These entities are publishers and subscribers of the channels they want to write on and listen to, respectively.
-The implementation provided by this framework works by simply inherit from the \emph{ThalamusClient} class and implement the interfaces of the messages that the entity wants to exchange.
+The implementation provided by this framework works by simply inheriting from the \emph{ThalamusClient} class and implementing the interfaces of the messages that the entity wants to exchange.
 
-The \emph{Unity Game} module is responsible for displaying the interface of the game, reading the physical cards, publishing all the relevant game events and subscribing to the plays of artificial players.
+The \emph{Unity Game} module is responsible for displaying the interface of the game, reading the physical cards, publishing all the relevant game events and subscribing to play events of the artificial players.
 
 The chosen \emph{Behaviour Planner} is \emph{Skene} \cite{Ribeiroa}, which tightens the communication between the world and an embodied agent with a high-level behaviour description language, also known as utterances.
 These utterances might include instructions for gazing, pointing, animating or sound, among other things.
