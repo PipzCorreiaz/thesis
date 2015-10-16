@@ -16,9 +16,9 @@ Otherwise, this rule-based player return the lowest possible card.
 
 The first experiments to test this baseline player compare three different scenarios:
 \begin{itemize}
-\item (a) 1000 games with 4 Rule-based players [dark green];
-\item (b) 1000 games with 1 Rule-based player and 3 Random players [red];
-\item (c) 1000 games with 2 Rule-based players against 2 Random players [dark blue].
+\item A - 1000 games with 4 Rule-based players [dark green];
+\item B - 1000 games with 1 Rule-based player and 3 Random players [red];
+\item C - 1000 games with 2 Rule-based players against 2 Random players [dark blue].
 \end{itemize}
 Each scenario has a corresponding colour that will be used in every chart for the same scenario.
 
@@ -26,20 +26,20 @@ Each scenario has a corresponding colour that will be used in every chart for th
         \centering
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/histA}
-                \caption{Scenario A}
+                \caption{}
                 \label{fig:histA}
         \end{subfigure}
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/histB}
-                \caption{Scenario B}
+                \caption{}
                 \label{fig:histB}
         \end{subfigure}
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/histC}
-                \caption{Scenario C}
+                \caption{}
                 \label{fig:histC}
         \end{subfigure}
-        \caption[Histograms of the final points obtained in the 3 scenarios]{Histograms of the final points obtained in 1000 games by: (a) one of the teams; (b) the team with 1 Rule-based player and 1 Random player; (c) the team with 2 Rule-based players}
+        \caption[Histograms of the final points obtained in the Scenarios A, B and C]{Histograms of the final points obtained in 1000 games by: (a) one of teams in Scenario A; (b) the team with 1 Rule-based and 1 Random in Scenario B; (c) the team with 2 Rule-based in Scenario C}
         \label{fig:histograms}
 \end{figure}
 
@@ -49,27 +49,27 @@ However, comparing the three histograms gets easier when merging the three fitti
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.5\textwidth]{./img/4/ABC}
-  \caption{Fitting curves of histograms presented on Figure~\ref{fig:histograms} with the same colour scheme}
+  \caption{Fitting curves of the histograms presented on Figure~\ref{fig:histograms} with the same colour scheme}
 \label{fig:ABC}
 \end{figure}
 
-In scenario (a), results were very balanced, as expected, because all players had the same deliberation process.
+In Scenario A, results were very balanced, as expected, because all players had the same deliberation process.
 In 1000 games, one of the teams obtained a winning percentage of 48.5\%, a drawing percentage of 1.9\% and a losing percentage of 49.6\%.
-The scenario (b) showed that a team with 1 Rule-based player and 1 Random player can beat a 2 Random players team with a winning percentage of 51.6\%, a drawing percentage of 1.8\% and a losing percentage of 41.6\%.
-Finally, in scenario (c), the team with 2 Rule-based players beat the the 2 Random players with the highest winning percentage of 61.1\%, a drawing percentage of 1.8\% and losing percentage of 37.1\%.
+The Scenario B showed that a team with 1 Rule-based player and 1 Random player can beat a 2 Random players team with a winning percentage of 51.6\%, a drawing percentage of 1.8\% and a losing percentage of 41.6\%.
+Finally, in Scenario C, the team with 2 Rule-based players beat the the 2 Random players with the highest winning percentage of 61.1\%, a drawing percentage of 1.8\% and losing percentage of 37.1\%.
 
-A player's performance can only be measured when playing with different players; otherwise, playing a considerable amount of games will balance the winning and losing rates, as seen in scenario (a).
+A player's performance can only be measured when playing with different players; otherwise, playing a considerable amount of games will balance the winning and losing rates, as seen in Scenario A.
 Additionally, theses results also demonstrated the impact of the team player on the team score, since having 2 Rule-based players in the same team increased the winning rate of the team with only 1 Rule-based player.
 
 %In addition to these conclusions, the winning rates achieved by 1 Rule-based (scenario (b)) and 2 Rule-based (scenario (c)) were lower than expected, since their opponents have completely random procedures for playing the game.
-In addition to these conclusions, considering the opponents of both teams in scenarios (b) and (c) have completely random procedures for playing the game, their winning rates were expected to be lower.
+In addition to these conclusions, considering the opponents of both teams in Scenarios B and C have completely random procedures for playing the game, their winning rates were expected to be lower.
 A possible reason might be \emph{Sueca}'s element of chance, which means certain hands can limit the result even though the opponents are Random players.
 
 This idea incited some research on the influence of the players' initial conditions on the game result.
 On the one hand, the power of a hand is completely dependent on the playing style of each player, and therefore, using Random players to measure this property is inappropriate.
 On the other hand, this measure will not be used to carefully predict a hand's effect on the final result.
 Instead, its goal is to generally classify a hand in one out of three distinct categories (\emph{hard}, \emph{medium} and \emph{easy}) and to filter the hands that are hardly or easily capable of winning.
-As a result, the chosen scenario to extract these categories' features was (a).
+As a result, the chosen scenario to extract these categories' features was A.
 
 In order to derive such characteristics, the first step is to speculate and collect possible features of the initial game conditions that may influence the final result.
 The next step is computing a linear regression on that data to decide the relevant features.
@@ -104,7 +104,7 @@ Although the model has a low r-squared value, the p-values of the predictors can
                 \caption{Variable \emph{team sevens number}}
                 \label{fig:teamSevensNumber}
         \end{subfigure}
-        \caption{Fitting function for each individual predictor variable}
+        \caption{Fitting function for each individual predictor variable to estimate the final points of the team}
         \label{fig:fitFunctions}
 \end{figure}
 
@@ -123,34 +123,34 @@ On the other hand, the second measure details the points distribution, since the
         \centering
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/ABChard}
-                \caption{filipa}
+                \caption{31, 25 and 29 \emph{hard} games out of executed 1000 games for each scenario A, B and C, respectively}
                 \label{fig:ABC-Hhard}
         \end{subfigure}
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/ABCmedium}
-                \caption{filipa}
+                \caption{941, 954 and 948 \emph{medium} games out of executed 1000 games for each scenario A, B and C}
                 \label{fig:ABC-Hmedium}
         \end{subfigure}
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/ABCeasy}
-                \caption{filipa}
+                \caption{29, 948 and 23 \emph{easy} games out of executed 1000 games for each scenario A, B and C, respectively}
                 \label{fig:ABC-Heasy}
         \end{subfigure}
-        \caption{filipa}
+        \caption{Fitting curves of the final points histograms from 1000 games in each Scenario A (dark green), B (red) and C (dark blue), divided into initial hands classification}
         \label{fig:ABC-CH}
 \end{figure}
 
-Figure~\ref{fig:ABC-CH} shows the distribution of the final points obtained in scenarios (a), (b) and (c) divided into the three aforementioned classifications.
-The goal of dividing Figure~\ref{fig:fitHistABC} is to see if the detected differences play a prominent role in each individual initial hand type.
+Figure~\ref{fig:ABC-CH} shows the distribution of the final points obtained in Scenarios A (dark green), B (red) and C (dark blue) divided into the three aforementioned classifications.
+The goal of dividing Figure~\ref{fig:ABC} is to see if the detected differences play a prominent role in each individual initial hand type.
 However, out of each 1000 collected games, a few percentage refers to games with \emph{hard} or \emph{easy} initial conditions (between 2\% and 3\% each one), which means the apparent results from \emph{hard} and \emph{easy} initial conditions have low confidence values.
 The final points of a team are higher as its Gaussian fitting curve moves to the right in the x axe.
-Hence, the distribution charts for \emph{hard} and \emph{medium} evidence the same results: the team with 1 Rule-based player (b) achieved higher final scores and the team with 2 Ruled-based players (c) obtained even higher when compared to 4 Random players (a).
+Hence, the distribution charts for \emph{hard} and \emph{medium} evidence the same results: the team with 1 Rule-based player (Scenario B) achieved higher final scores and the team with 2 Ruled-based players (Scenario C) obtained even higher when compared to 4 Random players (Scenario A).
 Nevertheless, regarding \emph{easy} initial conditions, the team with 1 Rule-based player underperforms slightly the other two scenarios.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.7\textwidth]{./img/4/ABC-fgr}
-  \caption{filipa}
+  \caption{\ac{fgr} in each Scenario A, B and C, divided into initial hands classification}
 \label{fig:ABC-fgr}
 \end{figure}
 
@@ -181,61 +181,61 @@ u_1 = \left\{
 
 In order to observe the Trick player performance, the following scenarios will be considered:
 \begin{itemize}
-\item (d) 1000 games with 1 Trick player and 3 Rule-based players [yellow];
-\item (e) 1000 games with 2 Trick players against 2 Rule-based players [orange].
+\item D - 1000 games with 1 Trick player and 3 Rule-based players [yellow];
+\item E - 1000 games with 2 Trick players against 2 Rule-based players [orange].
 \end{itemize}
 
-The \ac{fgr} of the team with 1 Trick player and 1 Rule-based (d) was 52.8\% (50.5\% won games and 2.3\% drawn games), and at the same time, the \ac{fgr} of the team with 2 Trick players (e) was 55.6\% (53.4\% won games and 2.2\% drawn games).
-In the same way there was a difference between scenarios (b) and (c), having two Trick players on the same team significantly improves the results when compared to only one.
+The \ac{fgr} of the team with 1 Trick player and 1 Rule-based (Scenario D) was 52.8\% (50.5\% won games and 2.3\% drawn games), and at the same time, the \ac{fgr} of the team with 2 Trick players (Scenario E) was 55.6\% (53.4\% won games and 2.2\% drawn games).
+In the same way there was a difference between Scenarios B and C, having two Trick players on the same team significantly improves the results when compared to only one.
 This evidence was expected, since \emph{Sueca} is a team game.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.5\textwidth]{./img/4/ADE}
-  \caption{filipa}
+  \caption{Fitting curves of the final points histograms from 1000 games in each Scenario A (dark green), D (yellow) and E (orange)}
 \label{fig:ADE}
 \end{figure}
 
 Additionally, Figure~\ref{fig:ADE} presents the distributions of the 1000 obtained final scores from each scenario.
-Scenario (a, green) was also included to provide a baseline of equilibrium.
-The Gaussian fitting curve of scenario (d, yellow) is nearly coincident with the one of scenario (a), suggesting one Trick player in a team does not influence the results.
-On the other hand, a team with 2 Trick players, scenario (e, orange), evidences a higher distribution between 60 and 80 points.
-These conclusions are also supported by the \acp{fgr} of 50.4\%, 50.5\% and 53.4\% from the teams of scenarios (a), (d) and (e), respectively.
+Scenario A (green) was also included to provide a baseline of equilibrium.
+The Gaussian fitting curve of Scenario D (yellow) is nearly coincident with the one of Scenario A, suggesting one Trick player in a team does not influence the results.
+On the other hand, a team with 2 Trick players, Scenario E (orange), evidences a higher distribution between 60 and 80 points.
+These conclusions are also supported by the \acp{fgr} of 50.4\%, 50.5\% and 53.4\% from the teams of Scenarios A, D and E, respectively.
 
 \begin{figure}[h]
         \centering
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/ADEhard}
-                \caption{filipa}
+                \caption{31, 27 and 24 \emph{hard} games out of executed 1000 games for each scenario A, D and E, respectively}
                 \label{fig:ADEhard}
         \end{subfigure}
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/ADEmedium}
-                \caption{filipa}
+                \caption{941, 953 and 954 \emph{medium} games out of executed 1000 games for each scenario A, D and E}
                 \label{fig:ADEmedium}
         \end{subfigure}
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/ADEeasy}
-                \caption{filipa}
+                \caption{28, 20 and 22 \emph{easy} games out of executed 1000 games for each scenario A, D and E, respectively}
                 \label{fig:ADEeasy}
         \end{subfigure}
-        \caption{filipa}
+        \caption{Fitting curves of the final points histograms from 1000 games in each Scenario A (dark green), D (yellow) and E (orange), divided into initial hands classification}
         \label{fig:ADE-CH}
 \end{figure}
 
 When analysing the Gaussian fitting curves divided into the classes of initial hands, results agree with previous conclusions, except for the \emph{hard} classification of initial conditions.
-So, in scenario (e, orange) the team of 2 Trick players achieved higher scores with \emph{hard} and \emph{medium} hands, while with \emph{easy} hands the modal values of the three scenarios seem to be concurrent.
+So, in Scenario E (orange) the team of 2 Trick players achieved higher scores with \emph{hard} and \emph{medium} hands, while with \emph{easy} hands the modal values of the three scenarios seem to be concurrent.
 However, as previously mentioned, out of each 1000 collected games, a few percentage refers to games with \emph{hard} or \emph{easy} initial conditions (between 2\% and 3\% each one), which means the apparent results from \emph{hard} and \emph{easy} initial conditions have low confidence values.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.7\textwidth]{./img/4/ADE-fgr}
-  \caption{filipa}
+  \caption{\ac{fgr} in each Scenario A, D and E, divided into initial hands classification}
 \label{fig:ADE-fgr}
 \end{figure}
 
 Moreover, the \acp{fgr} in Figure~\ref{fig:ADE-fgr} evidenced that the Trick player slightly outperforms the Rule-based player, mainly based on the \ac{fgr} of the \emph{medium} hands, in which the confidence is higher due to number of samples.
-The unexpected differences on scenario (d) with both \emph{hard} and \emph{easy} initial conditions refer to only one game, in both cases, and may reflect some flaws on the classification inferred from the linear regression.
+The unexpected differences on Scenario D with both \emph{hard} and \emph{easy} initial conditions refer to only one game, in both cases, and may reflect some flaws on the classification inferred from the linear regression.
 
 
 
@@ -255,21 +255,21 @@ Additionally, the mean time of its deliberation process for each move is 0.6 sec
 
 In order to observe the Deep-1 player performance, the following scenarios will be considered:
 \begin{itemize}
-\item (f) 1000 games with 1 Deep-1 player and 3 Rule-based players [pink];
-\item (g) 1000 games with 2 Deep-1 players against 2 Rule-based players [purple].
+\item F - 1000 games with 1 Deep-1 player and 3 Rule-based players [pink];
+\item G - 1000 games with 2 Deep-1 players against 2 Rule-based players [purple].
 \end{itemize}
 
-The overall \ac{fgr} of the team with 1 Deep-1 player and 1 Rule-based (d) was 58.3\% (57.6\% won games and 0.7\% drawn games), and at the same time, the \ac{fgr} of the team with 2 Deep-1 players (e) was 64.2\% (62.7\% won games and 1.5\% drawn games).
-In the same way there was a difference between scenarios (d) and (e), having two Deep-1 players on the same team significantly improves the results when compared to only one.
+The overall \ac{fgr} of the team with 1 Deep-1 player and 1 Rule-based (Scenario D) was 58.3\% (57.6\% won games and 0.7\% drawn games), and at the same time, the \ac{fgr} of the team with 2 Deep-1 players (Scenario E) was 64.2\% (62.7\% won games and 1.5\% drawn games).
+In the same way there was a difference between Scenarios D and E, having two Deep-1 players on the same team significantly improves the results when compared to only one.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.5\textwidth]{./img/4/DEFG}
-  \caption{filipa}
+  \caption{Fitting curves of the final points histograms from 1000 games in each Scenario D (yellow), E (orange), F (pink)and G (purple)}
 \label{fig:DEFG}
 \end{figure}
 
-Figure~\ref{fig:DEFG} presents the Gaussian fitting curves of the scenarios (d) and (e) as reference points, and scenarios (f) and (g).
+Figure~\ref{fig:DEFG} presents the Gaussian fitting curves of the Scenarios D and E as reference points, and Scenarios F and G.
 The final points obtained by the team with 1 Deep-1 player and 1 Rule-based (f, pink) were higher than the ones obtained by the team with 1 Trick and 1 Rule-based (d, yellow), which is visible in the density between 80 and 120 points.
 Similarly, the team with 2 Deep-1 players also has its Gaussian fitting curve on the right of the team with 2 Trick players, suggesting its achieved final points were higher.
 
@@ -277,31 +277,31 @@ Similarly, the team with 2 Deep-1 players also has its Gaussian fitting curve on
         \centering
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/DEFGhard}
-                \caption{filipa}
+                \caption{27, 24, 33 and 29 \emph{hard} games out of executed 1000 games for each scenario D, E, F and G, respectively}
                 \label{fig:DEFGhard}
         \end{subfigure}
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/DEFGmedium}
-                \caption{filipa}
+                \caption{953, 954, 945 and 948 \emph{medium} games out of executed 1000 games for each scenario D, E, F and G, respectively}
                 \label{fig:DEFGmedium}
         \end{subfigure}
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/DEFGeasy}
-                \caption{filipa}
+                \caption{20, 22, 22 and 23 \emph{easy} games out of executed 1000 games for each scenario D, E, F and G respectively}
                 \label{fig:DEFGeasy}
         \end{subfigure}
-        \caption{filipa}
+        \caption{Fitting curves of the final points histograms from 1000 games in each Scenario D (yellow), E (orange), F (pink)and G (purple), divided into initial hands classification}
         \label{fig:DEFG-CH}
 \end{figure}
 
-Figure~\ref{fig:DEFG-CH} presents the Gaussian fitting curves of scenarios (d), (e), (f) and (g) divided by the three initial hands conditions.
-By comparing results of \emph{medium} initial conditions, from scenarios (d) to (g), each evaluated team incrementally improves the previous one.
-On the other hand, both teams from scenarios (f) and (g) underperform in the achieved final scores for \emph{hard} initial hands and outperform the achieved finals cores for \emph{easy} initial hands when compared to scenarios (d) and (e).
+Figure~\ref{fig:DEFG-CH} presents the Gaussian fitting curves of Scenarios D, E, F and G divided by the three initial hands conditions.
+By comparing results of \emph{medium} initial conditions, from Scenarios D to G, each evaluated team incrementally improves the previous one.
+On the other hand, both teams from Scenarios F and G underperform in the achieved final scores for \emph{hard} initial hands and outperform the achieved finals cores for \emph{easy} initial hands when compared to Scenarios D and E.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.7\textwidth]{./img/4/DEFG-fgr}
-  \caption{filipa}
+  \caption{\ac{fgr} in each Scenario D, E, F and G, divided into initial hands classification}
 \label{fig:DEFG-fgr}
 \end{figure}
 
@@ -332,50 +332,48 @@ On the other hand, when limiting the depth of the search, without any heuristic,
 
 In order to observe the Deep-2 player performance, the following scenarios will be considered:
 \begin{itemize}
-\item (h) 1000 games with 1 Deep-2 player and 3 Rule-based players [light blue];
-\item (i) 1000 games with 2 Deep-2 players against 2 Rule-based players [light green].
+\item H - 1000 games with 1 Deep-2 player and 3 Rule-based players [light blue];
+\item I - 1000 games with 2 Deep-2 players against 2 Rule-based players [light green].
 \end{itemize}
 
-The overall \ac{fgr} of the team with 1 Deep-2 player and 1 Rule-based (d) was 58.6\% (57.3\% won games and 1.3\% drawn games), and at the same time, the \ac{fgr} of the team with 2 Deep-1 players (e) was 62.6\% (61.79\% won games and 0.7\% drawn games).
-In the same way there was a difference between scenarios (f) and (g), having two Deep-2 players on the same team significantly improves the results when compared to only one, although \acp{fgr} have decreased from the last scenarios.
+The overall \ac{fgr} of the team with 1 Deep-2 player and 1 Rule-based (Scenario D) was 58.6\% (57.3\% won games and 1.3\% drawn games), and at the same time, the \ac{fgr} of the team with 2 Deep-1 players (Scenario E) was 62.6\% (61.79\% won games and 0.7\% drawn games).
+In the same way there was a difference between Scenarios F and G, having two Deep-2 players on the same team significantly improves the results when compared to only one, although \acp{fgr} have decreased from the last scenarios.
 
 \begin{figure}[h]
         \centering
         \begin{subfigure}[h]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/FH}
-                \caption{filipa}
                 \label{fig:FH}
         \end{subfigure}
         \begin{subfigure}[h]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/GI}
-                \caption{filipa}
                 \label{fig:GI}
         \end{subfigure}
-        \caption{filipa}
+        \caption{Fitting curves of the final points histograms from 1000 games in each Scenario F (pink) and H (light blue) on the left, G (purple) and I (light green) on the right}
         \label{fig:FGHI}
 \end{figure}
 
-Figure~\ref{fig:FH} presents the Gaussian fitting curves of scenario (h) compared to scenario (f), at the same time Figure~\ref{fig:GI} presents the Gaussian fitting curves of scenario (i) compared to scenario (g).
-The two main considerations about these charts are the modal values of scenario (g, light blue) in the frontier of winning results; also, the team with 2 Deep-2 players underperforms in the obtained points of the team with 2 Deep-1 players.
+Figure~\ref{fig:FGHI} presents the Gaussian fitting curves of Scenario H compared to Scenario F on the left, and the Gaussian fitting curves of Scenario I compared to Scenario G on the right.
+The two main considerations about these charts are the modal values of Scenario G (light blue) in the frontier of winning results; also, the team with 2 Deep-2 players underperforms in the obtained points of the team with 2 Deep-1 players.
 
 \begin{figure}[h]
         \centering
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/FGHIhard}
-                \caption{filipa}
+                \caption{33, 29, 24 and 28 \emph{hard} games out of executed 1000 games for each scenario F, G, H and I, respectively}
                 \label{fig:FGHIhard}
         \end{subfigure}
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/FGHImedium}
-                \caption{filipa}
+                \caption{945, 948, 938 and 942 \emph{medium} games out of executed 1000 games for each scenario F, G, H and I, respectively}
                 \label{fig:FGHImedium}
         \end{subfigure}
         \begin{subfigure}[h]{0.32\textwidth}
                 \includegraphics[width=\textwidth]{./img/4/FGHIeasy}
-                \caption{filipa}
+                \caption{22, 23, 38 and 30 \emph{easy} games out of executed 1000 games for each scenario F, G, H and I, respectively}
                 \label{fig:FGHIeasy}
         \end{subfigure}
-        \caption{filipa}
+        \caption{Fitting curves of the final points histograms from 1000 games in each Scenario F (pink), G (purple), H (light blue) and I (light green), divided into initial hands classification}
         \label{fig:FGHI-CH}
 \end{figure}
 
@@ -386,11 +384,11 @@ The \emph{medium} initial conditions chart evidences the similarities in the fou
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.7\textwidth]{./img/4/FGHI-fgr}
-  \caption{filipa}
+  \caption{\ac{fgr} in each Scenario F, G, H and I, divided into initial hands classification}
 \label{fig:FGHI-fgr}
 \end{figure}
 
-Additionally, Figure~\ref{FGHI-fgr} presents the \acp{fgr} of scenarios (f), (g), (h) and (i), suggesting that the Deep-2 player underperforms the Deep-1 player.
+Additionally, Figure~\ref{fig:FGHI-fgr} presents the \acp{fgr} of Scenarios F, G, H and I, suggesting that the Deep-2 player underperforms the Deep-1 player.
 
 \subsection{Conclusion}
 
@@ -400,6 +398,6 @@ Taking the results into account, Deep-1 was the chosen player to participate in 
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.7\textwidth]{./img/4/DFH-fgr}
-  \caption{filipa}
+  \caption{\ac{fgr} in each Scenario D, F and H, divided into initial hands classification}
 \label{fig:DFH-fgr}
 \end{figure}
