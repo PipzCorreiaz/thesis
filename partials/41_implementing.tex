@@ -94,12 +94,14 @@ Similarly to a human player reasoning, it analyses the current trick and tries t
 If this auxiliary procedure expects the winner to be one of its opponents, it orders the cards from the less valuable to the most valuable, otherwise, it does the opposite.
 This concept might bring a trade-off between the produced speed and the time spent on this extra computation plus the sort.
 However, alpha-beta cuts have reasonably increased and, therefore, significantly reducing the exploration time of the whole tree.
-\todo[inline]{Se houver tempo, quantificar a perfomance atingida com esta heuristica. FOI BRUTAL!}
 
-Another improvement with remarkable results on the MinMax performance was a transposition table.
+
+Another improvement with positive results on the MinMax exploration performance was a transposition table.
 Considering each card configuration or distribution will produce \#Moves($I$) game trees, they will contain sufficient similar subtrees to store their first computed values.
 Therefore, instead of recomputing them, they can be reused.
-\todo[inline]{Detail time versus space problems. Too many days wasted on that deserves it!}
+This enhancement allowed the computation of a game tree with 7 depth levels in a reasonable time, which was not possible before.
+However, space inefficiency prevent the usage of this enhancement.
+
 
 Furthermore, another heuristic was used, aiming to reduce redundancy in the state generation, suggested by \citet{Buro}.
 When computing Moves($I$), two or more cards of the same suit, with consecutive ranks and with the same value can be considered as the same move, since they produce the same value.
